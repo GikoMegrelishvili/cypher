@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Primary";
+  src: url("../../assets/fonts/primary.otf");
+}
+@font-face {
+  font-family: "Secondary";
+  src: url("../../assets/fonts/secondary.otf");
+}
+@font-face {
+  font-family: "Accent-Bold";
+  src: url("../../assets/fonts/accent/accent-bold.ttf"),
+    url("../../assets/fonts/accent/accent-bold.otf") format("otf");
+}
+@font-face {
+  font-family: "Accent-Regular";
+  src: url("../../assets/fonts/accent/accent-regular.ttf"),
+    url("../../assets/fonts/accent/accent-regular.otf") format("otf");
+}
+@font-face {
+  font-family: "Accent-Light";
+  src: url("../../assets/fonts/accent/accent-light.ttf"),
+    url("../../assets/fonts/accent/accent-light.otf") format("otf");
+}

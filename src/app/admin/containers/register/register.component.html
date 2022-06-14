@@ -1,0 +1,28 @@
+<div class="auth-page">
+  <div class="auth-wrapper">
+    <h1 class="heading">რეგისტრაცია</h1>
+    <form [formGroup]="form" class="form mt-6" (ngSubmit)="onAddUser()">
+      <div>
+        <label for="username" class="label">მომხმარებლის სახელი</label>
+        <input formControlName="username" type="text" />
+      </div>
+      <div>
+        <label for="email" class="label">ელ. ფოსტა</label>
+        <input formControlName="email" type="email" />
+      </div>
+      <div>
+        <label for="password">პაროლი</label>
+        <input formControlName="password" type="password" />
+      </div>
+      <div>
+        <label for="comfirmPassword">გაიმეორეთ პაროლი</label>
+        <input formControlName="confirmPassword" type="password" />
+      </div>
+      <div class="mt-4">
+        <div class="mt-6">
+          <button class="secondary" type="submit">რეგისტრაცია</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
