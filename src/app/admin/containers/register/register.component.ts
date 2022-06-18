@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   public onAddUser(): void {
     if (this.form.invalid) return;
-    console.log("Request");
+    console.log('Request');
     this._store.collection('admins').add(this.form.value);
   }
 
@@ -46,18 +46,15 @@ export class RegisterComponent implements OnInit {
           // Validators.pattern('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$'),
         ],
       ],
-      confirmPassword: [
-        '',
-        [Validators.required,],
-      ],
+      confirmPassword: ['', [Validators.required]],
     });
   }
   // { validators: this.checkPasswords }
-  checkPasswords: ValidatorFn = (
-    group: AbstractControl
-  ): ValidationErrors | null => {
-    let pass = group?.get('password')?.value;
-    let confirmPass = group?.get('confirmPassword')?.value;
-    return pass === confirmPass ? null : { notSame: true };
-  };
+  // checkPasswords: ValidatorFn = (
+  //   group: AbstractControl
+  // ): ValidationErrors | null => {
+  //   let pass = group?.get('password')?.value;
+  //   let confirmPass = group?.get('confirmPassword')?.value;
+  //   return pass === confirmPass ? null : { notSame: true };
+  // };
 }

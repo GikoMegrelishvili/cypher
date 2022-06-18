@@ -1,6 +1,6 @@
 form {
   label {
-    @apply block text-black-900 font-secondary text-base;
+    @apply block text-primary-900 font-secondary text-base;
   }
   input {
     @apply block w-full px-4 py-2 mt-2 text-primary-900 border rounded-md focus:border-primary-400 focus:ring-primary-300 focus:outline-none focus:ring focus:ring-opacity-40;

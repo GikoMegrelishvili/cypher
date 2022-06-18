@@ -3,14 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-view-lyrics',
   templateUrl: './view-lyrics.component.html',
-  styles: [
-  ]
+  styleUrls: ['./view-lyrics.component.scss'],
 })
 export class ViewLyricsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
