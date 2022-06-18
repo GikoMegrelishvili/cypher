@@ -9,10 +9,5 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class AuthComponent implements OnInit {
   constructor(private _store: AngularFirestore) {}
 
-  ngOnInit(): void {
-    this._store
-      .collection('artists')
-      .valueChanges()
-      .subscribe((res) => console.log(res));
-  }
+  ngOnInit(): void {}
 }

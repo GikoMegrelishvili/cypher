@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -49,12 +42,4 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required]],
     });
   }
-  // { validators: this.checkPasswords }
-  // checkPasswords: ValidatorFn = (
-  //   group: AbstractControl
-  // ): ValidationErrors | null => {
-  //   let pass = group?.get('password')?.value;
-  //   let confirmPass = group?.get('confirmPassword')?.value;
-  //   return pass === confirmPass ? null : { notSame: true };
-  // };
 }

@@ -1,9 +1,9 @@
 .auth-page {
   @apply relative flex flex-col justify-center min-h-screen overflow-hidden;
   .auth-wrapper {
-    @apply w-full p-6 m-auto bg-white-100 border-t-4 border-primary-200 rounded-md shadow-md lg:max-w-md;
+    @apply w-full p-6 m-auto bg-primary-100 border-t-4 rounded-md shadow-md lg:max-w-md;
     .heading {
-      @apply text-3xl font-semibold text-center text-primary-300 font-secondary;
+      @apply text-3xl font-semibold text-center text-white-100 font-secondary;
     }
   }
 }
