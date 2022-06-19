@@ -5,22 +5,64 @@
       <div>
         <label for="username" class="label">მომხმარებლის სახელი</label>
         <input formControlName="username" type="text" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="
+              form.controls['username'].touched &&
+              form.controls['username'].invalid
+            "
+          >
+            შეიყვანეთ მომხმარებლის სახელი
+          </span>
+        </div>
       </div>
       <div>
         <label for="email" class="label">ელ. ფოსტა</label>
         <input formControlName="email" type="email" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="
+              form.controls['email'].touched && form.controls['email'].invalid
+            "
+          >
+            შეიყვანეთ ვალიდური ელ. ფოსტა
+          </span>
+        </div>
       </div>
       <div>
         <label for="password">პაროლი</label>
         <input formControlName="password" type="password" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="
+              form.controls['password'].touched &&
+              form.controls['password'].invalid
+            "
+          >
+            პაროლი უნდა შეიცავდეს დიდ ასოს, რიცხვს და სიმბოლოს
+          </span>
+        </div>
       </div>
       <div>
         <label for="comfirmPassword">გაიმეორეთ პაროლი</label>
         <input formControlName="confirmPassword" type="password" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="form.errors?.['notMatched'] && (form.controls['confirmPassword'].touched || form.controls['confirmPassword'].dirty)"
+          >
+            პაროლები არ ემთხვევა
+          </span>
+        </div>
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
-          <button class="accent" type="submit">რეგისტრაცია</button>
+          <button class="accent" type="submit" [disabled]="form.invalid">
+            რეგისტრაცია
+          </button>
         </div>
       </div>
     </form>

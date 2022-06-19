@@ -5,5 +5,11 @@
     .heading {
       @apply text-3xl font-semibold text-center text-white-100 font-secondary;
     }
+    .error {
+      @apply w-96 h-2;
+      .errorMsg {
+        @apply text-xs text-accent-900;
+      }
+    }
   }
 }
