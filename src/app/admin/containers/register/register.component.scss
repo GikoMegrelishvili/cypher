@@ -5,7 +5,7 @@
     .toggle-form {
       @apply flex justify-center mt-4;
       .heading {
-        @apply text-xl ml-3 inline cursor-pointer font-semibold text-center text-white-100 font-secondary;
+        @apply text-2xl ml-3 inline cursor-pointer font-semibold text-center text-white-100 font-secondary;
         &#registerHeading {
           @apply text-accent-400 cursor-default;
         }

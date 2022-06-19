@@ -1,6 +1,6 @@
 form {
   label {
-    @apply block text-white-100 font-basic-normal text-base mt-4;
+    @apply block text-white-100 font-secondary text-lg mt-4;
   }
   input {
     @apply block w-full px-4 py-2 mt-2 text-black-900 rounded-md focus:outline-none border border-transparent;
@@ -13,6 +13,6 @@ form {
 button {
   &.accent {
     @apply py-2 bg-transparent text-white-100 w-40 place-self-center rounded-md hover:bg-white-100 
-    hover:text-accent-600 font-basic-bold transition-all ease-in-out duration-100;
+    hover:text-accent-600 font-secondary transition-all ease-in-out duration-100;
   }
 }
