@@ -1,6 +1,7 @@
 <div class="auth-page">
   <div class="auth-wrapper">
     <h1 class="heading">რეგისტრაცია</h1>
+    <button (click)="changeRoute()">Toggle</button>
     <form [formGroup]="form" class="form mt-6" (ngSubmit)="onAddUser()">
       <div>
         <label for="username" class="label">მომხმარებლის სახელი</label>
@@ -42,7 +43,7 @@
               form.controls['password'].invalid
             "
           >
-            პაროლი უნდა შეიცავდეს დიდ ასოს, რიცხვს და სიმბოლოს
+            შეიყვანეთ ვალიდური პაროლი
           </span>
         </div>
       </div>
@@ -54,15 +55,13 @@
             class="errorMsg"
             *ngIf="form.errors?.['notMatched'] && (form.controls['confirmPassword'].touched || form.controls['confirmPassword'].dirty)"
           >
-            პაროლები არ ემთხვევა
+            პაროლი არ ემთხვევა
           </span>
         </div>
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
-          <button class="accent" type="submit" [disabled]="form.invalid">
-            რეგისტრაცია
-          </button>
+          <button class="accent" type="submit">რეგისტრაცია</button>
         </div>
       </div>
     </form>

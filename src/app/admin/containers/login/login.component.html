@@ -1,18 +1,19 @@
 <div class="auth-page">
   <div class="auth-wrapper">
     <h1 class="heading">ადმინი</h1>
-    <form class="form mt-6">
+    <button (click)="changeRoute()">Toggle</button>
+    <form class="form mt-6" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
         <label for="email" class="label">ელ. ფოსტა</label>
-        <input type="email" />
+        <input type="email" formControlName="email" />
       </div>
       <div>
         <label for="password">პაროლი</label>
-        <input type="password" />
+        <input type="password" formControlName="password" />
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
-          <button class="accent">შესვლა</button>
+          <button class="accent" type="submit">შესვლა</button>
         </div>
       </div>
     </form>

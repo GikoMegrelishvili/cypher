@@ -8,6 +8,8 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +17,14 @@ import {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public form!: FormGroup;
+  public form: FormGroup = new FormGroup({});
 
-  constructor(private _fb: FormBuilder, private _store: AngularFirestore) {}
+  constructor(
+    private _fb: FormBuilder,
+    private _store: AngularFirestore,
+    private _authServ: AuthService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this._fb.group(
@@ -48,8 +55,13 @@ export class RegisterComponent implements OnInit {
   }
 
   public onAddUser(): void {
-    if (this.form.invalid) return;
-    this._store.collection('admins').add(this.form.value);
+    if (this.form.invalid) {
+      return;
+    }
+    const { username, email, password } = this.form.value;
+    this._authServ.signUp(username, email, password).subscribe(() => {
+      this._router.navigate(['../../home']);
+    });
   }
 
   passwordMatchingValidator: ValidatorFn = (
@@ -62,4 +74,7 @@ export class RegisterComponent implements OnInit {
       ? null
       : { notMatched: true };
   };
+  changeRoute() {
+    this._router.navigate(['../../admin/auth']);
+  }
 }
