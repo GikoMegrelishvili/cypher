@@ -1,9 +1,12 @@
 form {
   label {
-    @apply block text-white-100 font-basic-normal text-base mt-6;
+    @apply block text-white-100 font-basic-normal text-base mt-4;
   }
   input {
-    @apply block w-full px-4 py-2 mt-2 text-black-900 rounded-md focus:outline-none;
+    @apply block w-full px-4 py-2 mt-2 text-black-900 rounded-md focus:outline-none border border-transparent;
+    &.ng-invalid.ng-touched {
+      @apply border-accent-400 border box-border;
+    }
   }
 }
 

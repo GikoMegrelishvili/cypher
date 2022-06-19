@@ -7,7 +7,7 @@
       .heading {
         @apply text-xl ml-3 inline cursor-pointer font-semibold text-center text-white-100 font-secondary;
         &#registerHeading {
-          @apply text-accent-400;
+          @apply text-accent-400 cursor-default;
         }
         &:hover {
           @apply text-accent-300;
