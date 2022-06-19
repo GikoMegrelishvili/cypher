@@ -1,15 +1,38 @@
 <div class="auth-page">
   <div class="auth-wrapper">
-    <h1 class="heading">ადმინი</h1>
-    <button (click)="changeRoute()">Toggle</button>
+    <div class="toggle-form">
+      <h2 class="heading" id="loginHeading">შესვლა</h2>
+      <h2 class="heading" (click)="changeRoute()">რეგისტრაცია</h2>
+    </div>
     <form class="form mt-6" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
         <label for="email" class="label">ელ. ფოსტა</label>
         <input type="email" formControlName="email" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="
+              form.controls['email'].touched && form.controls['email'].invalid
+            "
+          >
+            შეიყვანეთ მომხმარებლის სახელი
+          </span>
+        </div>
       </div>
       <div>
         <label for="password">პაროლი</label>
         <input type="password" formControlName="password" />
+        <div class="error">
+          <span
+            class="errorMsg"
+            *ngIf="
+              form.controls['password'].touched &&
+              form.controls['password'].invalid
+            "
+          >
+            შეიყვანეთ მომხმარებლის სახელი
+          </span>
+        </div>
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
