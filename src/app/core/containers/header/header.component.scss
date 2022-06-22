@@ -1,0 +1,6 @@
+#container {
+  @apply w-full h-14 bg-transparent flex justify-end items-center;
+  .bx {
+    @apply text-white-400 text-4xl mr-5 cursor-pointer;
+  }
+}
