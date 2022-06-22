@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      backgroundImage: {
+        cypher: "url('/assets/images/cypher.jpg')",
+      },
       fontFamily: {
         primary: ["Primary", "sans-serif"],
         secondary: ["Secondary", "sans-serif"],
@@ -25,7 +28,7 @@ module.exports = {
         500: "#333333",
         600: "#292929",
         700: "#1F1F1F",
-        900: "#141414",
+        800: "#141414",
         900: "#0A0A0A",
       },
       white: {

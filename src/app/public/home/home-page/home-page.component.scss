@@ -1,0 +1,9 @@
+#container {
+  @apply w-full h-screen bg-black-800 flex flex-col justify-center items-center;
+  a {
+    @apply mt-1;
+    p {
+      @apply text-white-100  text-4xl font-accent-regular animate-pulse hover:text-accent-700 hover:font-accent-bold transition ease-out duration-300;
+    }
+  }
+}

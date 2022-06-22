@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChildrenOutletContexts } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'cypher';
+  constructor(private _contexts: ChildrenOutletContexts) {}
+
+  getRouteAnimationData() {
+    return this._contexts.getContext('primary')?.route?.snapshot?.data?.[
+      'animation'
+    ];
+  }
 }

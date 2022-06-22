@@ -8,7 +8,7 @@ import { from, Observable } from 'rxjs';
 export class AuthService {
   constructor(private _auth: AngularFireAuth) {}
 
-  signUp(username: string, email: string, password: string) {
+  signUp(email: string, password: string) {
     return from(this._auth.createUserWithEmailAndPassword(email, password));
   }
 

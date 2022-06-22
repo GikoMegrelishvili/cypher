@@ -43,9 +43,9 @@ export class RegisterComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(6),
-            Validators.pattern(
-              '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{7,}'
-            ),
+            // Validators.pattern(
+            //   '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{7,}'
+            // ),
           ],
         ],
         confirmPassword: ['', [Validators.required]],
@@ -58,9 +58,10 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    const { username, email, password } = this.form.value;
-    this._authServ.signUp(username, email, password).subscribe(() => {
+    const { email, password } = this.form.value;
+    this._authServ.signUp(email, password).subscribe(() => {
       this._router.navigate(['../../home']);
+      return this._store.collection('admins').add(this.form.value);
     });
   }
 

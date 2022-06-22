@@ -17,6 +17,21 @@ const routes: Routes = [
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
+  {
+    path: 'artists',
+    loadChildren: () =>
+      import('./public/artists/artists.module').then((m) => m.ArtistsModule),
+  },
+  {
+    path: 'songs-list',
+    loadChildren: () =>
+      import('./public/songs/songs.module').then((m) => m.SongsModule),
+  },
+  {
+    path: 'overview',
+    loadChildren: () =>
+      import('./public/overview/overview.module').then((m) => m.OverviewModule),
+  },
 ];
 
 @NgModule({
