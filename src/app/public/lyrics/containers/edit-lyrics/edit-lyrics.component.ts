@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { Annotation, NgxAnnotateTextComponent } from 'ngx-annotate-text';
+import { EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-lyrics',
@@ -17,11 +19,19 @@ export class EditLyricsComponent implements OnInit {
     new Annotation(77, 85, 'Time', '#5a6268'),
   ];
 
-  htmlContent: any;
+  form: FormGroup = new FormGroup({
+    htmlContent: new FormControl(''),
+  });
   constructor() {}
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    // this.form.controls['htmlContent'].valueChanges.subscribe((res) =>
+    //   console.log(res)
+    // );
+  }
+  onRichTextEditorChange(html: any): void {
+    console.log(html);
+  }
   public onAnnotationsChange(anotations: any): void {
     console.log(anotations);
   }

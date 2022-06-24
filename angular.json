@@ -99,5 +99,7 @@
       }
     }
   },
-  "defaultProject": "cypher"
+  "cli": {
+    "analytics": "734bf6b2-038f-4665-ac9f-fecdb60943d2"
+  }
 }

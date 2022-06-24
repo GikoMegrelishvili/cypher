@@ -9,5 +9,10 @@
   #annotateText
 >
 </ngx-annotate-text>
-
-<div class="editor" id="#editor"></div>
+<form [formGroup]="form">
+  <angular-editor
+    [placeholder]="'Enter text here...'"
+    formControlName="htmlContent"
+    (html)="onRichTextEditorChange($event)"
+  ></angular-editor>
+</form>

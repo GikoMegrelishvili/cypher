@@ -5,7 +5,8 @@ import { EditLyricsComponent } from './containers/edit-lyrics/edit-lyrics.compon
 import { LyricsRoutingModule } from './lyrics-routing.module';
 import { NgxAnnotateTextModule } from 'ngx-annotate-text';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ViewLyricsComponent, EditLyricsComponent],
@@ -14,7 +15,9 @@ import { FormsModule } from '@angular/forms';
     LyricsRoutingModule,
     NgxAnnotateTextModule,
     AngularEditorModule,
+    HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class LyricsModule {}
