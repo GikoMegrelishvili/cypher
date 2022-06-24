@@ -19,7 +19,9 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@kolkov/angular-editor": "^2.1.0",
     "boxicons": "^2.1.2",
+    "ngx-annotate-text": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

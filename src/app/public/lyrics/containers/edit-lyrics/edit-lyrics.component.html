@@ -1,1 +1,13 @@
-<p>edit-lyrics works!</p>
+<ngx-annotate-text
+  [(annotations)]="annotations"
+  [removable]="true"
+  [text]="text"
+  annotationClass="my-annotation"
+  annotationColor="red"
+  annotationTextColor="white"
+  (annotationsChange)="onAnnotationsChange($event)"
+  #annotateText
+>
+</ngx-annotate-text>
+
+<div class="editor" id="#editor"></div>
