@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { ChildrenOutletContexts } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,5 @@ import { ChildrenOutletContexts } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private _contexts: ChildrenOutletContexts) {}
-
-  getRouteAnimationData() {
-    return this._contexts.getContext('primary')?.route?.snapshot?.data?.[
-      'animation'
-    ];
-  }
+  constructor() {}
 }
