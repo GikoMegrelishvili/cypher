@@ -9,10 +9,15 @@
   #annotateText
 >
 </ngx-annotate-text>
-<form [formGroup]="form">
+<!-- [formGroup]="form" -->
+<div>
   <angular-editor
     [placeholder]="'Enter text here...'"
-    formControlName="htmlContent"
-    (html)="onRichTextEditorChange($event)"
+    [(ngModel)]="htmlContent"
+    [config]="config"
   ></angular-editor>
-</form>
+</div>
+<!-- (html)="onRichTextEditorChange($event)" -->
+<!-- formControlName="htmlContent" -->
+
+<button (click)="onAddLyrics()">ADD LYRICS</button>

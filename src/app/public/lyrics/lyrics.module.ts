@@ -7,6 +7,8 @@ import { NgxAnnotateTextModule } from 'ngx-annotate-text';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SongCoverModule } from 'src/app/shared/ui/song-cover/song-cover.module';
+import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
 
 @NgModule({
   declarations: [ViewLyricsComponent, EditLyricsComponent],
@@ -18,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    SongCoverModule,
+    EditorModule,
   ],
 })
 export class LyricsModule {}

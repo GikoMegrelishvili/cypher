@@ -4,13 +4,13 @@ import { EditLyricsComponent } from './containers/edit-lyrics/edit-lyrics.compon
 import { ViewLyricsComponent } from './containers/view-lyrics/view-lyrics.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'lyrics/3/edit', pathMatch: 'full' },
+  { path: '', redirectTo: '3/edit', pathMatch: 'full' },
   {
-    path: 'lyrics/:id/edit',
+    path: ':id/edit',
     component: EditLyricsComponent,
   },
   {
-    path: 'lyrics/:id/view',
+    path: ':id/view',
     component: ViewLyricsComponent,
   },
 ];
