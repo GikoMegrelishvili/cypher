@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="wrapper">
+
+  <div class="container">
+    <div class="flex items-center justify-center p-12">
+      <div class="mx-auto w-full max-w-[550px]">
+        <form #regForm='ngForm' (ngSubmit)="addArtist(regForm)">
+          <h2 class="text-center">Artists</h2>
+          <br />
+          <div class="mb-5">
+            <label for="firstname" class="forLabel">სახელი: </label> <br />
+            <input type="text" class="forInput" placeholder="First Name" name="firstname" ngModel>
+          </div>
+          <div class="mb-5">
+            <label for="lastname" class="forLabel">მეილი: </label><br />
+            <input type="text" class="forInput" placeholder="Last Name" name="lastname" ngModel>
+          </div>
+          <div class="mb-5">
+            <label for="mcname" class="forLabel">ემსი სახელი: </label><br />
+            <input type="text" class="forInput" id="address" placeholder="MC Name" name="mcname" ngModel>
+          </div>
+
+          <br/>
+          <div>
+            <button class="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

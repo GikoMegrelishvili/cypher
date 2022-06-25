@@ -1,0 +1,15 @@
+.forLabel{
+  @apply mb-3 block text-base font-medium text-[#07074D]
+}
+
+.forInput{
+ @apply w-full rounded-md border border-[#e0e0e0] bg-white-100 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md
+}
+
+.message{
+  @apply w-full resize-none rounded-md border border-[#e0e0e0] bg-white-100 py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md
+}
+
+.submit{
+  @apply hover:shadow-md rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white-100 outline-none
+}

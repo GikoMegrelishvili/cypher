@@ -1,1 +1,8 @@
-<p>artists</p>
+<app-header></app-header>
+<div class="wrapper">
+<div class="artistbox">
+  <div *ngFor="let artist of artistList">
+    <app-artist-box [artist]="artist"></app-artist-box>
+  </div>
+</div>
+</div>
