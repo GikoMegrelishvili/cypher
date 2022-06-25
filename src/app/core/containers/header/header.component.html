@@ -1,4 +1,22 @@
 <div id="container">
-  <i class="bx bx-menu" (click)="navOpen()"> </i>
-  <app-navigation *ngIf="!navClosed"></app-navigation>
+  <div class="icon">
+    <i class="bx bx-menu" (click)="navOpen()"></i>
+  </div>
+  <div class="nav" #nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
+          >Artists</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/songs-list']" routerLinkActive="router-link-active"
+          >Songs</a
+        >
+      </li>
+    </ul>
+    <div class="icon">
+      <i class="bx bx-menu rotate-90" (click)="navOpen()"></i>
+    </div>
+  </div>
 </div>

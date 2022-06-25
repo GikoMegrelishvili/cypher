@@ -1,6 +1,29 @@
 #container {
-  @apply w-full h-14 bg-transparent flex justify-end items-center;
-  .bx {
-    @apply text-white-400 text-4xl mr-5 cursor-pointer;
+  @apply w-full bg-transparent flex justify-end items-center;
+  .nav {
+    @apply fixed translate-x-52;
+  }
+  .nav.active {
+    @apply -translate-x-0 bg-white-100 w-full flex justify-start transition-transform duration-200;
+    ul {
+      @apply w-4/5 flex justify-start;
+      li {
+        @apply ml-5;
+      }
+    }
+    .icon {
+      @apply w-1/5 flex flex-row justify-end;
+      i {
+        @apply text-black-900;
+      }
+    }
+  }
+
+  li {
+    @apply inline-block;
+  }
+  i {
+    @apply rounded-lg text-white-400 text-2xl mr-2 cursor-pointer transition-all 
+      duration-75 ease-in hover:rounded-md;
   }
 }

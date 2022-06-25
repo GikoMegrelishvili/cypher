@@ -1,5 +1,8 @@
 #container {
-  @apply w-full min-h-screen bg-black-800;
+  @apply w-full h-screen bg-black-800;
+  main {
+    @apply max-h-screen;
+  }
   .cypher {
     @apply bg-[url('/assets/images/cypher.jpg')] bg-cover w-80 h-60 left-10 top-32 absolute;
   }

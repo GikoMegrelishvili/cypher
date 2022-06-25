@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  navClosed = true;
+  @ViewChild('nav', { static: true }) nav!: ElementRef;
+  @ViewChild('icon', { static: true }) icon!: ElementRef;
   constructor() {}
 
   ngOnInit(): void {}
 
   navOpen() {
-    this.navClosed = !this.navClosed;
+    this.nav.nativeElement.classList.toggle('active');
   }
 }
