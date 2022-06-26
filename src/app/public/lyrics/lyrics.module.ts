@@ -9,9 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SongCoverModule } from 'src/app/shared/ui/song-cover/song-cover.module';
 import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
+import { LyricsAddComponent } from './containers/lyrics-add/lyrics-add.component';
+import { UtilsModule } from 'src/app/shared/utils/utis.module';
 
 @NgModule({
-  declarations: [ViewLyricsComponent, EditLyricsComponent],
+  declarations: [ViewLyricsComponent, EditLyricsComponent, LyricsAddComponent],
   imports: [
     CommonModule,
     LyricsRoutingModule,
@@ -22,6 +24,7 @@ import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
     ReactiveFormsModule,
     SongCoverModule,
     EditorModule,
+    UtilsModule,
   ],
 })
 export class LyricsModule {}

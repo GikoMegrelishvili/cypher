@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { SongsFacade } from 'src/app/shared/data-access/songs';
 
 @Component({
@@ -8,9 +9,14 @@ import { SongsFacade } from 'src/app/shared/data-access/songs';
 })
 export class SongViewComponent implements OnInit {
   private _songs$ = this._songsFacade.getAllSongs$();
-  constructor(private _songsFacade: SongsFacade) {}
+  constructor(
+    private _songsFacade: SongsFacade,
+    private _activatedRoute: ActivatedRouteSnapshot
+  ) {}
 
   ngOnInit(): void {
     this._songs$.subscribe((res) => console.log(res));
   }
+
+  private getIdFromParams(): void {}
 }

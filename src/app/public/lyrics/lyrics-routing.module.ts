@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditLyricsComponent } from './containers/edit-lyrics/edit-lyrics.component';
+import { LyricsAddComponent } from './containers/lyrics-add/lyrics-add.component';
 import { ViewLyricsComponent } from './containers/view-lyrics/view-lyrics.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '3/edit', pathMatch: 'full' },
+  { path: '', redirectTo: 'WkEBMtlTLp1IWVx39LQt/view', pathMatch: 'full' },
   {
     path: ':id/edit',
     component: EditLyricsComponent,
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: ':id/view',
     component: ViewLyricsComponent,
+  },
+  {
+    path: 'add',
+    component: LyricsAddComponent,
   },
 ];
 

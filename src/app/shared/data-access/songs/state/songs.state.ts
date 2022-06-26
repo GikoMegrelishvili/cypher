@@ -15,7 +15,8 @@ export class SongsState {
   public getSong$(songId: string): Observable<SongModel | any> {
     return this._songs$.pipe(
       map((songs: SongModel[]) => {
-        return songs.find((song: SongModel) => song.id === songId);
+        const songsMathched = songs.find((song: SongModel) => song.id === songId);
+        return songsMathched;
       })
     );
   }

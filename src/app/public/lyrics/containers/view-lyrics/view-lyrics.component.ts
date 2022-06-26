@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { ArtistFacade } from 'src/app/shared/data-access/artists';
+import { LyricsModel } from 'src/app/shared/data-access/lyrics/models/lyrics.model';
 import { SongsFacade } from 'src/app/shared/data-access/songs';
 import { SongModel } from 'src/app/shared/data-access/songs/models/song.model';
 import { LyricsFacade } from '../../../../shared/data-access/lyrics/lyrics.facade';
@@ -10,21 +12,42 @@ import { LyricsFacade } from '../../../../shared/data-access/lyrics/lyrics.facad
   templateUrl: './view-lyrics.component.html',
   styleUrls: ['./view-lyrics.component.scss'],
 })
-export class ViewLyricsComponent implements OnInit {
-  public lyrics$: any;
-  public lyrics: any;
-  public songId = '5';
-  public song$: Observable<SongModel> = this._facade.getSong$(this.songId);
-  constructor(private _facade: LyricsFacade) {}
+export class ViewLyricsComponent implements OnInit, OnDestroy {
+  public songId!: string;
+  public lyrics$ = new Observable<any>();
+  public song$ = new Observable<SongModel>();
+
+  private _subs = new Subscription();
+
+  constructor(
+    private _facade: LyricsFacade,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this._facade.getSongLyrics$(this.songId).subscribe((res: any) => {
-      this.setLyricsHtml(res[0].lyrics);
+    this.setIdFromParams();
+    this.subscribe();
+  }
+  ngOnDestroy(): void {
+    this._subs.unsubscribe();
+  }
+
+  private subscribe(): void {
+    this._subs.add(this.returnLyricsSub());
+  }
+  private returnLyricsSub() {
+    return this.lyrics$.subscribe((lyrics: LyricsModel) => {
+      console.log(lyrics)
+      const lyricsElement = document.getElementById('lyrics');
+      if (lyricsElement) lyricsElement.innerHTML = lyrics.lyricsHtml;
     });
   }
-  private setLyricsHtml(lyrics: any) {
-    this.lyrics = lyrics;
-    const lyricsElement = document.getElementById('lyrics');
-    if (lyricsElement) lyricsElement.innerHTML = this.lyrics;
+
+  public setIdFromParams(): void {
+    this._activatedRoute.params.subscribe((res: any) => {
+      this.songId = res.id;
+      this.song$ = this._facade.getSong$(this.songId);
+      this.lyrics$ = this._facade.getSongLyrics$(this.songId);
+    });
   }
 }

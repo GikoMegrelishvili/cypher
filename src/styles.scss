@@ -2,6 +2,7 @@
 @use "./assets/style/_globals";
 @use "./assets/style/_elements";
 @use "./assets/style/_typography";
+@use "./assets//style//components";
 
 @tailwind base;
 @tailwind components;

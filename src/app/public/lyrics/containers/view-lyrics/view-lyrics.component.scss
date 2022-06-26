@@ -1,0 +1,9 @@
+.lyrics-page {
+  @apply bg-white-300 h-full flex justify-center;
+  .container {
+    @apply flex justify-center;
+    .lyrics {
+      @apply bg-white-100 py-4 px-4 shadow-sm w-2/3 max-w-2xl;
+    }
+  }
+}

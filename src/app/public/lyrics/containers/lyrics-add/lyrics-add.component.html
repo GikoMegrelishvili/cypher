@@ -1,0 +1,23 @@
+<ngx-annotate-text
+  [(annotations)]="annotations"
+  [removable]="true"
+  [text]="text"
+  annotationClass="my-annotation"
+  annotationColor="red"
+  annotationTextColor="white"
+  (annotationsChange)="onAnnotationsChange($event)"
+  #annotateText
+>
+</ngx-annotate-text>
+<!-- [formGroup]="form" -->
+<div>
+  <angular-editor
+    [placeholder]="'Enter text here...'"
+    [(ngModel)]="htmlContent"
+    [config]="config"
+  ></angular-editor>
+</div>
+<!-- (html)="onRichTextEditorChange($event)" -->
+<!-- formControlName="htmlContent" -->
+
+<button (click)="onAddLyrics()">ADD LYRICS</button>
