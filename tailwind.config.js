@@ -7,11 +7,12 @@ module.exports = {
         cypher: "url('/assets/images/cypher.jpg')",
       },
       fontFamily: {
-        primary: ["Primary", "sans-serif"],
+        "primary-light": ["Primary-Light", "sans-serif"],
+        "primary-medium": ["Primary-Medium", "sans-serif"],
+        "primary-bold": ["Primary-Bold", "sans-serif"],
         secondary: ["Secondary", "sans-serif"],
-        "accent-regular": ["Accent-Regular", "sans-serif"],
-        "accent-bold": ["Accent-Bold", "sans-serif"],
-        "accent-light": ["Accent-Light", "sans-serif"],
+        accent: ["Accent", "sans-serif"],
+        special: ["Special", "sans-serif"],
       },
     },
     colors: {

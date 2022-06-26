@@ -3,7 +3,7 @@
   a {
     @apply mt-1;
     p {
-      @apply text-white-100  text-4xl font-accent-regular animate-pulse hover:text-accent-700 hover:font-accent-bold transition ease-out duration-300;
+      @apply text-white-100 font-accent text-4xl animate-pulse hover:text-accent-700 transition ease-out duration-300;
     }
   }
 }

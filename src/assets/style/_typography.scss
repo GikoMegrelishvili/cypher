@@ -1,23 +1,31 @@
+//Primary
 @font-face {
-  font-family: "Primary";
-  src: url("../../assets/fonts/primary.otf");
+  font-family: "Primary-light";
+  src: url("../fonts/primary/OpenSans-Light.ttf");
 }
+@font-face {
+  font-family: "Primary-Medium";
+  src: url("../fonts/primary/OpenSans-Medium.ttf");
+}
+@font-face {
+  font-family: "Primary-Bold";
+  src: url("../fonts/primary/OpenSans-Bold.ttf");
+}
+
+//Secondary
 @font-face {
   font-family: "Secondary";
-  src: url("../../assets/fonts/secondary.otf");
+  src: url("../fonts/secondary/SpecialElite-Regular.ttf");
 }
+
+//Accent
 @font-face {
-  font-family: "Accent-Bold";
-  src: url("../../assets/fonts/accent/accent-bold.ttf"),
-    url("../../assets/fonts/accent/accent-bold.otf") format("otf");
+  font-family: "Accent";
+  src: url("../fonts/accent/CarterOne-Regular.ttf");
 }
+
+//Special
 @font-face {
-  font-family: "Accent-Regular";
-  src: url("../../assets/fonts/accent/accent-regular.ttf"),
-    url("../../assets/fonts/accent/accent-regular.otf") format("otf");
-}
-@font-face {
-  font-family: "Accent-Light";
-  src: url("../../assets/fonts/accent/accent-light.ttf"),
-    url("../../assets/fonts/accent/accent-light.otf") format("otf");
+  font-family: "Special";
+  src: url("../fonts/special/Monoton-Regular.ttf");
 }
