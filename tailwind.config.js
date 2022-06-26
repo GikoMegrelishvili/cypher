@@ -12,9 +12,6 @@ module.exports = {
         "accent-regular": ["Accent-Regular", "sans-serif"],
         "accent-bold": ["Accent-Bold", "sans-serif"],
         "accent-light": ["Accent-Light", "sans-serif"],
-        "basic-light": ["Basic-Light", "sans-serif"],
-        "basic-normal": ["Basic-Normal", "sans-serif"],
-        "basic-bold": ["Basic-Bold", "sans-serif"],
       },
     },
     colors: {

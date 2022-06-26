@@ -1,0 +1,29 @@
+#container {
+  @apply w-full h-full bg-transparent flex justify-end;
+  .icon {
+    @apply text-3xl;
+  }
+
+  .nav {
+    @apply w-full h-full bg-accent-300 flex flex-row items-center transition-all duration-500 ease-in-out;
+    ul {
+      @apply grow flex items-center h-full;
+      li {
+        @apply inline-block ml-2;
+        h2 {
+          @apply font-accent-regular text-4xl font-bold mr-5;
+        }
+      }
+    }
+    .icon {
+      @apply mx-3 transition-all duration-150 ease-in;
+    }
+  }
+
+  .nav.active {
+    @apply bg-transparent -translate-x-full;
+    .icon {
+      @apply text-accent-300 animate-pulse rotate-180 translate-x-14;
+    }
+  }
+}

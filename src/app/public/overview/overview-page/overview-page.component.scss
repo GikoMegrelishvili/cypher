@@ -1,9 +1,15 @@
 #container {
-  @apply w-full h-screen bg-black-800;
-  main {
-    @apply max-h-screen;
+  @apply w-full h-screen bg-white-200;
+  .navigation {
+    @apply h-14;
   }
-  .cypher {
-    @apply bg-[url('/assets/images/cypher.jpg')] bg-cover w-80 h-60 left-10 top-32 absolute;
+  .main {
+    @apply h-max w-full;
+    .cypher {
+      @apply bg-[url('/assets/images/cypher.jpg')] bg-cover w-80 h-60 left-10 top-20 absolute;
+      &:hover {
+        @apply scale-105 duration-200 ease-in-out;
+      }
+    }
   }
 }

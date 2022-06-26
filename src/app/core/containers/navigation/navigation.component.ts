@@ -1,13 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class NavigationComponent implements OnInit {
   @ViewChild('nav', { static: true }) nav!: ElementRef;
-  @ViewChild('icon', { static: true }) icon!: ElementRef;
+
   constructor() {}
 
   ngOnInit(): void {}

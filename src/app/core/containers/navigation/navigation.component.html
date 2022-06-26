@@ -1,9 +1,9 @@
 <div id="container">
-  <div class="icon">
-    <i class="bx bx-menu" (click)="navOpen()"></i>
-  </div>
-  <div class="nav" #nav>
+  <div class="nav active" #nav>
     <ul>
+      <li>
+        <h2>Cypher</h2>
+      </li>
       <li>
         <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
           >Artists</a
@@ -16,7 +16,7 @@
       </li>
     </ul>
     <div class="icon">
-      <i class="bx bx-menu rotate-90" (click)="navOpen()"></i>
+      <i class="bx bxs-chevrons-left" (click)="navOpen()"></i>
     </div>
   </div>
 </div>
