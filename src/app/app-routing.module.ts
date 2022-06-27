@@ -4,8 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lyrics',
     pathMatch: 'full',
+  },
+  {
+    path: 'lyrics',
+    loadChildren: () =>
+      import('./public/lyrics/lyrics.module').then((m) => m.LyricsModule),
   },
   {
     path: 'home',
@@ -23,7 +28,7 @@ const routes: Routes = [
       import('./public/artists/artists.module').then((m) => m.ArtistsModule),
   },
   {
-    path: 'songs-list',
+    path: 'songs',
     loadChildren: () =>
       import('./public/songs/songs.module').then((m) => m.SongsModule),
   },

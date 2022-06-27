@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArtistBoxComponent } from './components/artist-box/artist-box.component';
+import { ArtistAddComponent } from './containers/artist-add/artist-add.component';
+import { ArtistEditComponent } from './containers/artist-edit/artist-edit.component';
+import { ArtistViewComponent } from './containers/artist-view/artist-view.component';
 import { ArtistsListComponent } from './containers/artists-list/artists-list.component';
 
 const routes: Routes = [
@@ -9,6 +11,9 @@ const routes: Routes = [
     component: ArtistsListComponent,
     pathMatch: 'full',
   },
+  { path: 'add', component: ArtistAddComponent },
+  { path: ':id/view', component: ArtistViewComponent },
+  { path: ':id/edit', component: ArtistEditComponent },
 ];
 
 @NgModule({

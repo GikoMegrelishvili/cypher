@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,18 +15,18 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup = new FormGroup({});
+  form: UntypedFormGroup = new UntypedFormGroup({});
   constructor(
     private _store: AngularFirestore,
-    private _fb: FormBuilder,
+    private _fb: UntypedFormBuilder,
     private _authServ: AuthService,
     private _router: Router
   ) {}
 
   ngOnInit(): void {
     this.form = this._fb.group({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      email: new UntypedFormControl('', Validators.required),
+      password: new UntypedFormControl('', Validators.required),
     });
   }
 
