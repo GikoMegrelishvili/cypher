@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { ArtistFacade } from 'src/app/shared/data-access/artists';
+import { ArtistModel } from 'src/app/shared/data-access/artists';
 import { LyricsModel } from 'src/app/shared/data-access/lyrics/models/lyrics.model';
-import { SongsFacade } from 'src/app/shared/data-access/songs';
 import { SongModel } from 'src/app/shared/data-access/songs/models/song.model';
 import { LyricsFacade } from '../../../../shared/data-access/lyrics/lyrics.facade';
 
@@ -28,6 +27,7 @@ export class ViewLyricsComponent implements OnInit, OnDestroy {
     this.setIdFromParams();
     this.subscribe();
   }
+
   ngOnDestroy(): void {
     this._subs.unsubscribe();
   }
@@ -38,7 +38,6 @@ export class ViewLyricsComponent implements OnInit, OnDestroy {
 
   private returnLyricsSub() {
     return this.lyrics$.subscribe((lyrics: LyricsModel) => {
-      console.log(lyrics);
       const lyricsElement = document.getElementById('lyrics');
       if (lyricsElement) lyricsElement.innerHTML = lyrics.lyricsHtml;
     });

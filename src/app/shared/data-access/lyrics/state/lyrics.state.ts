@@ -11,7 +11,6 @@ export class LyricsState {
     return this._fireStore.collection<LyricsModel>('lyrics').valueChanges();
   }
   public getSongLyrics(songId: string): Observable<LyricsModel> {
-    console.log(songId);
     return this._fireStore
       .collection<LyricsModel>('lyrics', (ref) =>
         ref.where('songId', '==', songId)

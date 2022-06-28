@@ -5,17 +5,16 @@
 >
   <div class="song-box">
     <div class="song-image">
-      <img src="{{song?.coverImageUrl}}" alt="{{ song?.songName }}" />
+      <img src="{{ song?.coverImageUrl }}" alt="{{ song?.songName }}" />
     </div>
     <div class="song-description">
       <h3 class="title">{{ song?.songName }}</h3>
       <h4 class="artist">{{ song?.artistName }}</h4>
-      <ng-container *ngIf="artists?.length">
-        <ng-container *ngFor="let artist of artists">
-          <span class="pseudonym" *ngIf="artist.pseudonyms"
-            >{{ artist.pseudonyms[0] }},
-          </span>
-        </ng-container>
+
+      <ng-container *ngFor="let artist of artists">
+        <span class="pseudonym" *ngIf="artist.id === singleArtistId">
+          {{ artist.pseudonyms ? artist.pseudonyms[0] : artist.firstName }}
+        </span>
       </ng-container>
     </div>
   </div>
