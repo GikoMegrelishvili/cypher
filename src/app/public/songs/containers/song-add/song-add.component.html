@@ -1,1 +1,43 @@
-<button (click)="onAddSong()">Add Song</button>
+<div class="auth-page">
+  <div class="auth-wrapper">
+    <form [formGroup]="form" class="form mt-6" (ngSubmit)="onAddSong()">
+      <div>
+        <label for="artistName" class="label">Artist Name</label>
+        <input formControlName="artistName" type="text" />
+        <div class="error"></div>
+      </div>
+      <div>
+        <label for="songName" class="label">Song Name</label>
+        <input formControlName="songName" type="text" />
+        <div class="error"></div>
+      </div>
+      <div>
+        <div>
+          <select name="" id="" formControlName="artistsIds" multiple>
+            <option value="">Select Artist</option>
+            <option *ngFor="let art of artists" [value]="art.id">
+              {{ art.firstName }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label for="coverImageUrl">Cover Image Url</label>
+          <input
+            type="text"
+            id="coverImageUrl"
+            formControlName="coverImageUrl"
+          />
+        </div>
+        <div>
+          <label for="color">Color</label>
+          <input type="text" formControlName="color" id="color" />
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="mt-6 grid">
+          <button class="accent" type="submit">Add Song</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

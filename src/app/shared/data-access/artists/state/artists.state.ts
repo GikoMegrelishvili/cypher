@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+
 import { ArtistModel } from '../models/artist.model';
 
 @Injectable({ providedIn: 'root' })
 export class ArtistsState {
-  private _artists$ = new BehaviorSubject<ArtistModel[]>([]);
+  private _artists$ = this._fireStore
+    .collection('artists')
+    .valueChanges({ idField: 'id' }) as Observable<ArtistModel[]>;
 
   constructor(private _fireStore: AngularFirestore) {}
 
   public getAllArtists$(): Observable<ArtistModel[]> {
-    return this._artists$.asObservable();
+    return this._artists$;
   }
   public getArtist$(id: string): Observable<ArtistModel | any> {
     return this._artists$.pipe(

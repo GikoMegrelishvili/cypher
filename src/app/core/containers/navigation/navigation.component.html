@@ -5,13 +5,23 @@
         <h2>Cypher</h2>
       </li>
       <li>
+        <a [routerLink]="['/overview']" routerLinkActive="router-link-active"
+          >Overview</a
+        >
+      </li>
+      <li>
         <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
           >Artists</a
         >
       </li>
       <li>
-        <a [routerLink]="['/songs-list']" routerLinkActive="router-link-active"
+        <a [routerLink]="['/songs']" routerLinkActive="router-link-active"
           >Songs</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/lyrics']" routerLinkActive="router-link-active"
+          >Lyrics</a
         >
       </li>
     </ul>

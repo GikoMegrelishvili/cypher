@@ -1,12 +1,12 @@
 <div class="auth-page">
   <div class="auth-wrapper">
     <div class="toggle-form">
-      <h2 class="heading" (click)="changeRoute()">შესვლა</h2>
-      <h2 class="heading" id="registerHeading">რეგისტრაცია</h2>
+      <h2 class="heading" (click)="changeRoute()">Sign In</h2>
+      <h2 class="heading" id="registerHeading">Sign Up</h2>
     </div>
     <form [formGroup]="form" class="form mt-6" (ngSubmit)="onAddUser()">
       <div>
-        <label for="username" class="label">მომხმარებლის სახელი</label>
+        <label for="username" class="label">Username</label>
         <input formControlName="username" type="text" />
         <div class="error">
           <span
@@ -16,12 +16,12 @@
               form.controls['username'].invalid
             "
           >
-            შეიყვანეთ მომხმარებლის სახელი
+            Invalid Username.
           </span>
         </div>
       </div>
       <div>
-        <label for="email" class="label">ელ. ფოსტა</label>
+        <label for="email" class="label">Email</label>
         <input formControlName="email" type="email" />
         <div class="error">
           <span
@@ -30,12 +30,12 @@
               form.controls['email'].touched && form.controls['email'].invalid
             "
           >
-            შეიყვანეთ ვალიდური ელ. ფოსტა
+            Invalid Email.
           </span>
         </div>
       </div>
       <div>
-        <label for="password">პაროლი</label>
+        <label for="password">Password</label>
         <input formControlName="password" type="password" />
         <div class="error">
           <span
@@ -45,25 +45,25 @@
               form.controls['password'].invalid
             "
           >
-            შეიყვანეთ ვალიდური პაროლი
+            Invalid Password.
           </span>
         </div>
       </div>
       <div>
-        <label for="comfirmPassword">გაიმეორეთ პაროლი</label>
+        <label for="comfirmPassword">Confirm Password</label>
         <input formControlName="confirmPassword" type="password" />
         <div class="error">
           <span
             class="errorMsg"
             *ngIf="form.errors?.['notMatched'] && (form.controls['confirmPassword'].touched || form.controls['confirmPassword'].dirty)"
           >
-            პაროლი არ ემთხვევა
+            Passwords do not match.
           </span>
         </div>
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
-          <button class="accent" type="submit">რეგისტრაცია</button>
+          <button class="accent" type="submit">Sign Up</button>
         </div>
       </div>
     </form>

@@ -1,5 +1,5 @@
 #container {
-  @apply w-full h-full bg-transparent flex justify-end;
+  @apply w-full h-14 bg-transparent flex justify-end;
   .icon {
     @apply text-3xl;
   }
@@ -9,14 +9,14 @@
     ul {
       @apply grow flex items-center h-full;
       li {
-        @apply inline-block ml-2;
+        @apply inline-block ml-2 mr-5;
         h2 {
           @apply text-3xl font-special mr-5;
         }
       }
     }
     .icon {
-      @apply mx-3 transition-all duration-150 ease-in;
+      @apply mx-3 animate-pulse transition-all duration-200 ease-in;
     }
   }
 

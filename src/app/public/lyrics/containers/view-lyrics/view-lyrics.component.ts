@@ -35,9 +35,10 @@ export class ViewLyricsComponent implements OnInit, OnDestroy {
   private subscribe(): void {
     this._subs.add(this.returnLyricsSub());
   }
+
   private returnLyricsSub() {
     return this.lyrics$.subscribe((lyrics: LyricsModel) => {
-      console.log(lyrics)
+      console.log(lyrics);
       const lyricsElement = document.getElementById('lyrics');
       if (lyricsElement) lyricsElement.innerHTML = lyrics.lyricsHtml;
     });

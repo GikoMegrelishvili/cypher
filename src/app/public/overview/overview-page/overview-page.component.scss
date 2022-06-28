@@ -1,8 +1,6 @@
 #container {
   @apply w-full h-screen bg-white-200;
-  .navigation {
-    @apply h-14;
-  }
+
   .main {
     @apply h-min w-full;
     .cypher {

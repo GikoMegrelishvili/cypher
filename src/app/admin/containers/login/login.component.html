@@ -1,12 +1,12 @@
 <div class="auth-page">
   <div class="auth-wrapper">
     <div class="toggle-form">
-      <h2 class="heading" id="loginHeading">შესვლა</h2>
-      <h2 class="heading" (click)="changeRoute()">რეგისტრაცია</h2>
+      <h2 class="heading" id="loginHeading">Sign In</h2>
+      <h2 class="heading" (click)="changeRoute()">Sign Up</h2>
     </div>
     <form class="form mt-6" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
-        <label for="email" class="label">ელ. ფოსტა</label>
+        <label for="email" class="label">Email</label>
         <input type="email" formControlName="email" />
         <div class="error">
           <span
@@ -15,12 +15,12 @@
               form.controls['email'].touched && form.controls['email'].invalid
             "
           >
-            შეიყვანეთ მომხმარებლის სახელი
+            Invalid Email.
           </span>
         </div>
       </div>
       <div>
-        <label for="password">პაროლი</label>
+        <label for="password">Password</label>
         <input type="password" formControlName="password" />
         <div class="error">
           <span
@@ -30,13 +30,13 @@
               form.controls['password'].invalid
             "
           >
-            შეიყვანეთ პაროლი
+            Invalid Password.
           </span>
         </div>
       </div>
       <div class="mt-4">
         <div class="mt-6 grid">
-          <button class="accent" type="submit">შესვლა</button>
+          <button class="accent" type="submit">Sign In</button>
         </div>
       </div>
     </form>

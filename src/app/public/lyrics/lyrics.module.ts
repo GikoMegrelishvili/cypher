@@ -11,6 +11,7 @@ import { SongCoverModule } from 'src/app/shared/ui/song-cover/song-cover.module'
 import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
 import { LyricsAddComponent } from './containers/lyrics-add/lyrics-add.component';
 import { UtilsModule } from 'src/app/shared/utils/utis.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [ViewLyricsComponent, EditLyricsComponent, LyricsAddComponent],
@@ -25,6 +26,7 @@ import { UtilsModule } from 'src/app/shared/utils/utis.module';
     SongCoverModule,
     EditorModule,
     UtilsModule,
+    CoreModule,
   ],
 })
 export class LyricsModule {}
