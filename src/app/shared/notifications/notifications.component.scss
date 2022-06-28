@@ -1,0 +1,54 @@
+.notifications{
+  @apply  fixed top-0 right-0 z-50 w-96    ;
+
+  .notification{
+
+    @apply  rounded-md  text-black-900 overflow-hidden bg-white-500 p-4 m-2 	 ;
+
+  }
+}
+
+.title {
+  @apply flex flex-row h-20 ;
+  .icon {
+    @apply w-1/5  block m-auto text-center ;
+    i{
+      @apply text-4xl;
+    }
+  }
+  .text {
+    @apply w-3/5;
+    .notification-title{
+      @apply font-bold;
+    }
+  }
+  .button {
+    @apply w-1/5 text-xl text-black-100 opacity-50	hover:opacity-100 hover:text-black-900 transition-all duration-100 ease-in;
+  }
+}
+//     .title {
+//       background: rgb(255, 255, 255);
+//       padding-left: 10px;
+//       font-weight: bold;
+//     }
+
+//     .message {
+//       background: rgb(255, 255, 255);
+//       padding: 10px;
+//       max-height: 200px;
+//       overflow-y: auto;
+//     }
+
+//     &.info {
+//       background-color: rgb(53, 9, 134);
+//     }
+
+//     &.success {
+//       background-color: rgba(27, 158, 119);
+//     }
+
+//     &.error {
+//       background-color: rgba(246, 71, 71);
+//     }
+//   }
+// }

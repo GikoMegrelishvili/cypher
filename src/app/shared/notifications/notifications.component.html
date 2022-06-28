@@ -1,0 +1,40 @@
+<div class="notifications">
+  <div
+    *ngFor="let notification of notifications"
+    class="notification"
+    [ngClass]="className(notification)"
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        notificationTpl;
+        context: { notification: notification }
+      "
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #notificationTpl let-notification="notification">
+  <div class="title">
+    <div class="icon">
+      <div
+        *ngIf="notification.type === 'success'"
+        [ngStyle]="{ color: 'green' }"
+      >
+        <i class="bx bxs-check-square"></i>
+      </div>
+      <div *ngIf="notification.type === 'error'" [ngStyle]="{ color: 'red' }">
+        <i class="bx bxs-error-alt"></i>
+      </div>
+      <div *ngIf="notification.type === 'info'" [ngStyle]="{ color: 'yellow' }">
+        <i class="bx bxs-info-circle"></i>
+      </div>
+    </div>
+    <div class="text">
+      <div class="notification-title">{{ notification.title }}</div>
+      <div class="message">{{ notification.message }}</div>
+    </div>
+    <div class="button">
+      <button (click)="close(notification)"><i class="bx bx-x"></i></button>
+    </div>
+  </div>
+</ng-template>

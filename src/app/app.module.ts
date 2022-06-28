@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
+import { NotificationsComponent } from './shared/notifications/notifications.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotificationsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

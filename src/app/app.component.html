@@ -1,3 +1,10 @@
 <main>
+  <button type="submit" (click)="onError()">error</button>
+  <br />
+  <button type="submit" (click)="onInfo()">info</button>
+  <br />
+  <button type="submit" (click)="onSuccess()">success</button>
   <router-outlet></router-outlet>
 </main>
+
+<app-notifications></app-notifications>
