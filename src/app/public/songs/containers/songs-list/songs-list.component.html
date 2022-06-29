@@ -1,5 +1,3 @@
-<app-navigation></app-navigation>
-
 <div *ngFor="let song of songs">
   <div class="song-box" routerLink="/lyrics/{{ song.id }}/view">
     <div>{{ "id: " + song.id }}</div>

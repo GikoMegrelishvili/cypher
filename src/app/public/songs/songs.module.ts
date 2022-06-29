@@ -9,11 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SongsListComponent, SongAddComponent, SongEditComponent],
-  imports: [
-    CommonModule,
-    SongsListRoutingModule,
-    CoreModule,
-    ReactiveFormsModule,
-  ],
+  imports: [CommonModule, SongsListRoutingModule, ReactiveFormsModule],
 })
 export class SongsModule {}

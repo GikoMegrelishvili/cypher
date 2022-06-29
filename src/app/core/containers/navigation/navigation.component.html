@@ -1,24 +1,33 @@
 <div id="container">
   <div class="nav active" #nav>
     <ul>
-      <li>
-        <h2>Cypher</h2>
-      </li>
-      <li>
-        <a [routerLink]="['/overview']" routerLinkActive="router-link-active"
-          >Overview</a
-        >
-      </li>
-      <li>
-        <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
-          >Artists</a
-        >
-      </li>
-      <li>
-        <a [routerLink]="['/songs']" routerLinkActive="router-link-active"
-          >Songs</a
-        >
-      </li>
+      <div class="router">
+        <li>
+          <h2>Cypher</h2>
+        </li>
+        <li>
+          <a [routerLink]="['/overview']" routerLinkActive="router-link-active"
+            >Overview</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
+            >Artists</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/songs']" routerLinkActive="router-link-active"
+            >Songs</a
+          >
+        </li>
+      </div>
+      <div class="account">
+        <ul>
+          <li>
+            <div (click)="onSignOut()">Sign Out</div>
+          </li>
+        </ul>
+      </div>
     </ul>
     <div class="icon">
       <i class="bx bxs-chevrons-left" (click)="navOpen()"></i>

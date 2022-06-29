@@ -20,7 +20,8 @@
         @apply text-2xl font-bold text-accent-100;
       }
       .pseudonym {
-        @apply text-base font-bold text-black-900;
+        @apply cursor-pointer text-base font-bold text-black-900 hover:underline 
+        hover:decoration-black-900 hover:decoration-2;
       }
     }
   }
