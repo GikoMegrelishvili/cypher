@@ -20,10 +20,10 @@ export class SongCoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.song$.subscribe((song: any) => {
-      this.artistsIds = song.artistsIds;
+      this.artistsIds = song?.artistsIds;
       this.song = song;
-      console.log(this.song);
-      console.log(this.artistsIds);
+      // console.log(this.song);
+      // console.log(this.artistsIds);
       this.getArtistsById();
     });
   }
@@ -31,13 +31,16 @@ export class SongCoverComponent implements OnInit {
   getArtistsById() {
     this.artistsIds.forEach((res: string) => {
       this.singleArtistId = res;
-      console.log(this.singleArtistId);
-      this._artistFacade
-        .getArtist$(this.singleArtistId)
-        .subscribe((res: any) => {
-          this.artists.push(res);
-        });
+      // console.log(this.singleArtistId);
+      this.getArtistArray();
     });
-    console.log(this.artists);
+    // console.log(this.artists);
+  }
+
+  getArtistArray() {
+    this._artistFacade.getArtist$(this.singleArtistId).subscribe((res: any) => {
+      this.artists.push(res);
+      console.log(res.pseudonyms[0]);
+    });
   }
 }

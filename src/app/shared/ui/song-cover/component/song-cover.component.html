@@ -12,7 +12,7 @@
       <h4 class="artist">{{ song?.artistName }}</h4>
 
       <ng-container *ngFor="let artist of artists">
-        <span class="pseudonym" *ngIf="artist.id === singleArtistId">
+        <span class="pseudonym" routerLink="/artists/{{ artist.id }}/view">
           {{ artist.pseudonyms ? artist.pseudonyms[0] : artist.firstName }}
         </span>
       </ng-container>
