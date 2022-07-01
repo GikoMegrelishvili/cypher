@@ -75,6 +75,7 @@ export class RegisterComponent implements OnInit {
       ? null
       : { notMatched: true };
   };
+
   changeRoute() {
     this._router.navigate(['../../admin/auth']);
   }

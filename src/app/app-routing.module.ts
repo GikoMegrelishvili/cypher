@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+
+const redirectToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
   {
@@ -21,6 +25,8 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectToHome },
   },
   {
     path: 'artists',
@@ -42,5 +48,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [],
 })
 export class AppRoutingModule {}

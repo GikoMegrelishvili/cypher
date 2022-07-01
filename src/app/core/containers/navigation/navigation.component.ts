@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/admin/containers/auth/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/admin/containers/auth/auth.service';
 export class NavigationComponent implements OnInit {
   @ViewChild('nav', { static: true }) nav!: ElementRef;
 
-  constructor(private _authService: AuthService) {}
+  constructor(public _authService: AuthService, private _router: Router) {}
 
   ngOnInit(): void {}
 
@@ -19,5 +20,9 @@ export class NavigationComponent implements OnInit {
 
   onSignOut() {
     this._authService.signOut();
+  }
+
+  onSignIn() {
+    this._router.navigate(['/admin']);
   }
 }

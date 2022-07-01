@@ -22,11 +22,17 @@
         </li>
       </div>
       <div class="account">
-        <ul>
-          <li>
-            <div (click)="onSignOut()">Sign Out</div>
-          </li>
-        </ul>
+        <ng-container
+          *ngIf="_authService.currentUser$ | async as user; else signInButton"
+        >
+          <div>
+            {{ user.email }}
+          </div>
+          <button (click)="onSignOut()">Sign Out</button>
+        </ng-container>
+        <ng-template #signInButton>
+          <button (click)="onSignIn()">Sign In</button>
+        </ng-template>
       </div>
     </ul>
     <div class="icon">
