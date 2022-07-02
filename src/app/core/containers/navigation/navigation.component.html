@@ -26,7 +26,12 @@
           *ngIf="_authService.currentUser$ | async as user; else signInButton"
         >
           <div>
-            {{ user.email }}
+            <a
+              [routerLink]="['/profile']"
+              routerLinkActive="router-link-active"
+            >
+              {{ user.email }}</a
+            >
           </div>
           <button (click)="onSignOut()">Sign Out</button>
         </ng-container>

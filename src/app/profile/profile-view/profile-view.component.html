@@ -1,2 +1,5 @@
-<p>{{ user.email }}</p>
-<p>{{ user.accessToken }}</p>
+<ng-container *ngIf="user$ | async as user"
+  ><p>{{ user.email }}</p>
+  <p>{{ user.uid }}</p>
+  <p>{{ user.providerId }}</p>
+</ng-container>

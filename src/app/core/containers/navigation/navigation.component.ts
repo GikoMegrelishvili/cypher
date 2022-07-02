@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/admin/containers/auth/auth.service';
+import { LoadingService } from 'src/app/shared/loading/loading.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,7 +11,11 @@ import { AuthService } from 'src/app/admin/containers/auth/auth.service';
 export class NavigationComponent implements OnInit {
   @ViewChild('nav', { static: true }) nav!: ElementRef;
 
-  constructor(public _authService: AuthService, private _router: Router) {}
+  constructor(
+    public _authService: AuthService,
+    private _router: Router,
+    private _loadingService: LoadingService
+  ) {}
 
   ngOnInit(): void {}
 
