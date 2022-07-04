@@ -16,6 +16,7 @@ export const fadeIn = trigger('routeAnimations', [
   transition('* <=> *', [
     query(
       ':enter, :leave',
+
       style({ position: 'fixed', width: '100%', zIndex: 2 }),
       { optional: true }
     ),

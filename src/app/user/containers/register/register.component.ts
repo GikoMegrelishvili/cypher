@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   AbstractControl,
-  UntypedFormBuilder,
-  UntypedFormGroup,
+  FormBuilder,
+  FormGroup,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -17,10 +17,10 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public form: UntypedFormGroup = new UntypedFormGroup({});
+  public form: FormGroup = new FormGroup({});
 
   constructor(
-    private _fb: UntypedFormBuilder,
+    private _fb: FormBuilder,
     private _store: AngularFirestore,
     private _authServ: AuthService,
     private _router: Router
@@ -59,10 +59,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
     const { email, password } = this.form.value;
-    this._authServ.signUp(email, password).subscribe(() => {
-      this._router.navigate(['../../home']);
-      return this._store.collection('admins').add(this.form.value);
-    });
+    this._authServ.signUp(email, password);
+    this._router.navigate(['../../home']);
+    this._store.collection('users').add(this.form.value);
   }
 
   passwordMatchingValidator: ValidatorFn = (
@@ -77,6 +76,6 @@ export class RegisterComponent implements OnInit {
   };
 
   changeRoute() {
-    this._router.navigate(['../../admin/auth']);
+    this._router.navigate(['../../user/auth']);
   }
 }

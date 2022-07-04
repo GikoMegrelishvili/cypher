@@ -16,33 +16,28 @@ export class AuthService {
 
   signUp(email: string, password: string) {
     this._loadingService.showLoading();
-    return from(
-      this._auth
-        .createUserWithEmailAndPassword(email, password)
-        .then((response: any) => {
-          this._loadingService.hideLoading();
-          console.log(response.user);
-        })
-        .catch((error: any) => {
-          console.log(error);
-        })
-    );
+    this._auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((response: any) => {
+        this._loadingService.hideLoading();
+        console.log(response.user);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   }
 
   signIn(email: string, password: string) {
     this._loadingService.showLoading();
-    return from(
-      this._auth
-        .signInWithEmailAndPassword(email, password)
-        .then((response: any) => {
-          this._loadingService.hideLoading();
-          console.log(response.user);
-          console.log(this.currentUser$);
-        })
-        .catch((error: any) => {
-          console.log(error);
-        })
-    );
+    return this._auth
+      .signInWithEmailAndPassword(email, password)
+      .then((response: any) => {
+        this._loadingService.hideLoading();
+        console.log(response.user);
+      })
+      .catch((error: any) => {
+        console.log(error);
+      });
   }
 
   signOut() {

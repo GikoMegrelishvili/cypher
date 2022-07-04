@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
       return;
     }
     const { email, password } = this.form.value;
-    this._authServ.signIn(email, password).subscribe(() => {
-      this._router.navigate(['../../home']);
-    });
+    this._authServ.signIn(email, password);
+
+    this._router.navigate(['../../home']);
   }
 
   changeRoute() {
-    this._router.navigate(['../../admin/register']);
+    this._router.navigate(['../../user/register']);
   }
 }
