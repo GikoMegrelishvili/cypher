@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Event, NavigationStart, Router } from '@angular/router';
+import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { AuthService } from 'src/app/admin/containers/auth/auth.service';
 import { LoadingService } from 'src/app/shared/loading/loading.service';
 
@@ -18,11 +18,11 @@ export class NavigationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationStart) {
-        this.nav.nativeElement.classList.toggle('active');
-      }
-    });
+    // this._router.events.subscribe((event: Event) => {
+    //   if (event instanceof NavigationStart) {
+    //     this.nav.nativeElement.classList.toggle('active');
+    //   }
+    // });
   }
 
   navOpen() {

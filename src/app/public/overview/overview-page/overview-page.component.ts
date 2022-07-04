@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview-page',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview-page.component.scss'],
 })
 export class OverviewPageComponent implements OnInit {
-  constructor() {}
+  @ViewChild('image', { static: true }) image!: ElementRef;
+
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {}
 }

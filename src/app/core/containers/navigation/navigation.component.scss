@@ -5,28 +5,36 @@
   }
 
   .nav {
-    @apply w-full h-full bg-accent-300 flex flex-row items-center transition-all duration-500 ease-in-out cursor-pointer;
+    @apply w-full h-full bg-accent-300 flex flex-row items-center transition-all duration-1000 ease-in-out;
+
     ul {
       @apply grow flex items-center h-full justify-between;
       .router {
         @apply flex items-center;
         li {
-          @apply inline-block ml-2 mr-5;
+          @apply inline-block ml-2 mr-5 cursor-pointer;
           h2 {
-            @apply text-3xl font-special mr-5;
+            @apply text-3xl font-special mr-5 cursor-default;
           }
         }
       }
     }
+
     .icon {
-      @apply mx-3 animate-pulse transition-all duration-200 ease-in;
+      @apply mx-3 animate-pulse transition-all duration-200 ease-in cursor-pointer;
     }
   }
 
   .nav.active {
-    @apply bg-transparent -translate-x-full;
+    @apply w-full h-full bg-white-100;
+    .account {
+      @apply hidden;
+    }
+    li {
+      @apply hidden;
+    }
     .icon {
-      @apply text-accent-300 animate-pulse rotate-180 translate-x-14;
+      @apply text-accent-300 animate-pulse rotate-180;
     }
   }
 }
