@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { ArtistModel } from 'src/app/shared/data-access/artists';
 import { LyricsModel } from 'src/app/shared/data-access/lyrics/models/lyrics.model';
 import { SongModel } from 'src/app/shared/data-access/songs/models/song.model';
+import { LoadingService } from 'src/app/shared/loading/loading.service';
 import { LyricsFacade } from '../../../../shared/data-access/lyrics/lyrics.facade';
 
 @Component({

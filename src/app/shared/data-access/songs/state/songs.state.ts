@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
+import { LoadingService } from 'src/app/shared/loading/loading.service';
 import { SongModel } from '../models/song.model';
 
 @Injectable({ providedIn: 'root' })
@@ -9,7 +10,10 @@ export class SongsState {
     .collection('songs')
     .valueChanges({ idField: 'id' }) as Observable<SongModel[]>;
 
-  constructor(private _fireStore: AngularFirestore) {}
+  constructor(
+    private _fireStore: AngularFirestore,
+    private _loadingService: LoadingService
+  ) {}
 
   public getAllSongs$(): Observable<SongModel[]> {
     return this._songs$;

@@ -1,5 +1,5 @@
 #container {
-  @apply w-full h-14 bg-transparent flex justify-end fixed bottom-0;
+  @apply w-full h-14 bg-transparent flex justify-end fixed bottom-0 z-10;
   .icon {
     @apply text-3xl;
   }

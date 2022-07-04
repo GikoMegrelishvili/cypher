@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import { LoadingViewComponent } from './shared/loading/loading-view/loading-view.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './shared/interceptor/request.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, LoadingViewComponent],
@@ -21,6 +22,7 @@ import { RequestInterceptor } from './shared/interceptor/request.interceptor';
     AngularFirestoreModule,
     CoreModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
