@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   UntypedFormBuilder,
@@ -34,9 +35,7 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    const { email, password } = this.form.value;
-    this._authServ.signIn(email, password);
-
+    this._authServ.signIn(this.form.value);
     this._router.navigate(['../../home']);
   }
 

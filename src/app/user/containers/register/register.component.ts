@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   AbstractControl,
@@ -21,9 +22,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _store: AngularFirestore,
+    private _fireStore: AngularFirestore,
     private _authServ: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _fireAuth: AngularFireAuth
   ) {}
 
   ngOnInit(): void {
@@ -58,10 +60,17 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    const { email, password } = this.form.value;
-    this._authServ.signUp(email, password);
+    this._authServ.signUp(this.form.value);
+    this._fireAuth.authState.subscribe((user) => {
+      // console.log(user);
+      // console.log(user?.uid);
+      this._fireStore.collection('users').doc(user?.uid).set({
+        username: this.form.value.username,
+        email: this.form.value.email,
+        password: this.form.value.password,
+      });
+    });
     this._router.navigate(['../../home']);
-    this._store.collection('users').add(this.form.value);
   }
 
   passwordMatchingValidator: ValidatorFn = (

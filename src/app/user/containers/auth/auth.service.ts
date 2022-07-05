@@ -1,38 +1,33 @@
 import { Injectable } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { from } from 'rxjs';
-import { LoadingService } from 'src/app/shared/loading/loading.service';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  currentUser$ = this._auth.user;
+  currentUser$ = this._fireAuth.user as Observable<User>;
 
-  constructor(
-    private _auth: AngularFireAuth,
-    private _loadingService: LoadingService
-  ) {}
+  constructor(private _fireAuth: AngularFireAuth) {}
 
-  signUp(email: string, password: string) {
-    this._loadingService.showLoading();
-    this._auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((response: any) => {
-        this._loadingService.hideLoading();
-        console.log(response.user);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
+  signUp(value: any) {
+    return from(
+      this._fireAuth
+        .createUserWithEmailAndPassword(value.email, value.password)
+        .then((response: any) => {
+          console.log(response.user);
+        })
+        .catch((error: any) => {
+          console.log(error);
+        })
+    );
   }
 
-  signIn(email: string, password: string) {
-    this._loadingService.showLoading();
-    return this._auth
-      .signInWithEmailAndPassword(email, password)
+  signIn(value: any) {
+    return this._fireAuth
+      .signInWithEmailAndPassword(value.email, value.password)
       .then((response: any) => {
-        this._loadingService.hideLoading();
         console.log(response.user);
       })
       .catch((error: any) => {
@@ -41,6 +36,6 @@ export class AuthService {
   }
 
   signOut() {
-    return from(this._auth.signOut());
+    return this._fireAuth.signOut();
   }
 }

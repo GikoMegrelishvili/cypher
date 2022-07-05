@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/user/containers/auth/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'app-profile-view',
@@ -8,14 +9,24 @@ import { AuthService } from 'src/app/user/containers/auth/auth.service';
   styleUrls: ['./profile-view.component.scss'],
 })
 export class ProfileViewComponent implements OnInit {
-  public user$ = new Observable<any>();
+  public user!: UserModel;
 
-  constructor(private _authService: AuthService) {}
+  constructor(
+    private _authFire: AngularFireAuth,
+    private _fireStore: AngularFirestore
+  ) {}
 
   ngOnInit(): void {
-    this.user$ = this._authService.currentUser$;
-    this.user$.subscribe((res) => {
-      console.log(res);
+    this._authFire.authState.subscribe((user) => {
+      // console.log(user);
+      this._fireStore
+        .collection('users')
+        .doc(user?.uid)
+        .valueChanges()
+        .subscribe((user) => {
+          // console.log(user);
+          this.user = user as UserModel;
+        });
     });
   }
 }
