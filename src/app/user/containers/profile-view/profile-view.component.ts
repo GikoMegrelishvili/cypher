@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { UserModel } from '../../models/user.model';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../user-services/auth.service';
+import { UserDataService } from '../user-services/user-data.service';
 
 @Component({
   selector: 'app-profile-view',
@@ -9,24 +9,25 @@ import { UserModel } from '../../models/user.model';
   styleUrls: ['./profile-view.component.scss'],
 })
 export class ProfileViewComponent implements OnInit {
-  public user!: UserModel;
+  profileForm = new FormGroup({
+    uid: new FormControl(''),
+    displayName: new FormControl(''),
+    email: new FormControl(''),
+    imageUrl: new FormControl(''),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    role: new FormControl(''),
+  });
 
-  constructor(
-    private _authFire: AngularFireAuth,
-    private _fireStore: AngularFirestore
-  ) {}
+  constructor(private _userDataServ: UserDataService) {}
 
   ngOnInit(): void {
-    this._authFire.authState.subscribe((user) => {
-      // console.log(user);
-      this._fireStore
-        .collection('users')
-        .doc(user?.uid)
-        .valueChanges()
-        .subscribe((user) => {
-          // console.log(user);
-          this.user = user as UserModel;
-        });
+    this._userDataServ.getCurrentUser$().subscribe((user) => {
+      this.profileForm.patchValue({ ...user });
     });
+  }
+  saveProfile() {
+    const profileData = this.profileForm.value;
+    this._userDataServ.updateUser(profileData);
   }
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
   AbstractControl,
   FormBuilder,
@@ -10,7 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../user-services/auth.service';
+import { UserDataService } from '../user-services/user-data.service';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +21,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _fireStore: AngularFirestore,
     private _authServ: AuthService,
     private _router: Router,
-    private _fireAuth: AngularFireAuth
+    private _userDataServ: UserDataService
   ) {}
 
   ngOnInit(): void {
@@ -56,21 +54,15 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  public onAddUser(): void {
-    if (this.form.invalid) {
-      return;
-    }
-    this._authServ.signUp(this.form.value);
-    this._fireAuth.authState.subscribe((user) => {
-      // console.log(user);
-      // console.log(user?.uid);
-      this._fireStore.collection('users').doc(user?.uid).set({
-        username: this.form.value.username,
-        email: this.form.value.email,
-        password: this.form.value.password,
-      });
+  onAddUser() {
+    if (this.form.invalid) return;
+
+    const { username, email, password } = this.form.value;
+    this._authServ.signUp(email, password).subscribe((userCredential) => {
+      const uid = userCredential.user?.uid;
+      this._userDataServ.addUser({ uid, displayName: username, email });
+      this._router.navigate(['/home']);
     });
-    this._router.navigate(['../../home']);
   }
 
   passwordMatchingValidator: ValidatorFn = (
@@ -78,7 +70,6 @@ export class RegisterComponent implements OnInit {
   ): ValidationErrors | null => {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
-
     return password?.value === confirmPassword?.value
       ? null
       : { notMatched: true };

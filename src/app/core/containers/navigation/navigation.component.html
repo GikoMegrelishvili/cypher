@@ -22,15 +22,13 @@
         </li>
       </div>
       <div class="account">
-        <ng-container
-          *ngIf="_authService.currentUser$ | async as user; else signInButton"
-        >
+        <ng-container *ngIf="user$ | async as user; else signInButton">
           <div>
             <a
               [routerLink]="['/user/profile']"
               routerLinkActive="router-link-active"
             >
-              {{ user.email }}</a
+              {{ user.displayName }}</a
             >
           </div>
           <button (click)="onSignOut()">Sign Out</button>

@@ -1,10 +1,9 @@
 export interface UserModel {
-  username: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  uid: string;
-  role: string;
-  imageUrl: string;
+  uid?: string | null;
+  email?: string | null;
+  displayName?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  role?: string | null;
+  imageUrl?: string | null;
 }

@@ -1,0 +1,12 @@
+.auth-page {
+  @apply relative flex flex-col justify-center min-h-screen overflow-scroll;
+  .auth-wrapper {
+    @apply w-full max-h-fit px-6 m-auto bg-black-100 rounded-md shadow-md lg:max-w-md;
+    .form {
+      @apply mt-0;
+    }
+    .heading {
+      @apply text-2xl  ml-3 inline font-semibold text-center text-white-100;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SongModel, SongsFacade } from 'src/app/shared/data-access/songs';
 
 @Component({
@@ -10,7 +9,7 @@ import { SongModel, SongsFacade } from 'src/app/shared/data-access/songs';
 export class SongsListComponent implements OnInit {
   songs: SongModel[] = [];
 
-  constructor(private _songsFacade: SongsFacade, private _router: Router) {}
+  constructor(private _songsFacade: SongsFacade) {}
 
   ngOnInit(): void {
     this.getAllSong();

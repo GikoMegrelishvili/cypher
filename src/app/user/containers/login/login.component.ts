@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
+  FormBuilder,
+  FormControl,
+  FormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../user-services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +14,17 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: UntypedFormGroup = new UntypedFormGroup({});
+  form: FormGroup = new FormGroup({});
   constructor(
-    private _store: AngularFirestore,
-    private _fb: UntypedFormBuilder,
+    private _fb: FormBuilder,
     private _authServ: AuthService,
     private _router: Router
   ) {}
 
   ngOnInit(): void {
     this.form = this._fb.group({
-      email: new UntypedFormControl('', Validators.required),
-      password: new UntypedFormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
 
@@ -35,8 +32,16 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this._authServ.signIn(this.form.value);
-    this._router.navigate(['../../home']);
+    const { email, password } = this.form.value;
+    this._authServ.signIn(email, password).subscribe(() => {
+      this._authServ.currentUser$.subscribe((user) => {
+        if (!user) {
+          this.form.reset();
+          return;
+        }
+        this._router.navigate(['/home']);
+      });
+    });
   }
 
   changeRoute() {

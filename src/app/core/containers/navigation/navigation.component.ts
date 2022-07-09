@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { AuthService } from 'src/app/user/containers/auth/auth.service';
+import { AuthService } from 'src/app/user/containers/user-services/auth.service';
 import { filter } from 'rxjs/operators';
 import { UserModel } from 'src/app/user/models/user.model';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserDataService } from 'src/app/user/containers/user-services/user-data.service';
 
 @Component({
   selector: 'app-navigation',
@@ -13,12 +13,12 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class NavigationComponent implements OnInit {
   @ViewChild('nav', { static: true }) nav!: ElementRef;
   currentRouteUrl: string = '';
-  currentUser!: UserModel;
+  user$ = this._userDataServ.getCurrentUser$();
 
   constructor(
-    public _authService: AuthService,
+    private _authService: AuthService,
     private _router: Router,
-    private _fireAuth: AngularFireAuth
+    private _userDataServ: UserDataService
   ) {}
 
   ngOnInit(): void {
@@ -26,12 +26,7 @@ export class NavigationComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((res: any) => {
         this.currentRouteUrl = res.url;
-        // console.log(this.currentRouteUrl);
       });
-    this._fireAuth.authState.subscribe((user) => {
-      // console.log(user);
-      // console.log(user?.uid);
-    });
   }
 
   navOpen() {
@@ -40,9 +35,7 @@ export class NavigationComponent implements OnInit {
 
   onSignOut() {
     this._authService.signOut();
-    console.log(this.currentRouteUrl);
     if (this.currentRouteUrl === '/user/profile') {
-      console.log('hi');
       this._router.navigate(['/home']);
     }
   }

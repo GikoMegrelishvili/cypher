@@ -1,3 +1,35 @@
-<p>{{ user.email }}</p>
-<p>{{ user.username }}</p>
-<p>{{ user.password }}</p>
+<div class="auth-page">
+  <div class="auth-wrapper">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="saveProfile()"
+      class="form mt-6"
+    >
+      <div>
+        <label for="imageUrl">Image Url</label>
+        <input formControlName="imageUrl" type="file" />
+      </div>
+      <div>
+        <label for="displayName" class="label">Display Name</label>
+        <input formControlName="displayName" type="text" />
+      </div>
+      <div>
+        <label for="email" class="label">Email</label>
+        <input formControlName="email" type="email" />
+      </div>
+      <div>
+        <label for="firstName">First Name</label>
+        <input formControlName="firstName" type="firstName" />
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input formControlName="lastName" type="lastName" />
+      </div>
+      <div class="mt-4">
+        <div class="mt-6">
+          <button class="accent" type="submit">Save Profile</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
