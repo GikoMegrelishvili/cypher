@@ -5,5 +5,5 @@ export interface UserModel {
   firstName?: string | null;
   lastName?: string | null;
   role?: string | null;
-  imageUrl?: string | null;
+  photoUrl?: string | null;
 }

@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/user/containers/user-services/auth.service';
 import { filter } from 'rxjs/operators';
-import { UserModel } from 'src/app/user/models/user.model';
 import { UserDataService } from 'src/app/user/containers/user-services/user-data.service';
 
 @Component({

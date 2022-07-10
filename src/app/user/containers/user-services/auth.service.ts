@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { from, Observable, of, switchMap } from 'rxjs';
+import { updateProfile, UserInfo } from 'firebase/auth';
+import { concatMap, from, Observable, of } from 'rxjs';
+import { UserModel } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,14 +24,15 @@ export class AuthService {
     return this._fireAuth.signOut();
   }
 
-  // updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
-  //   const user = this._fireAuth.currentUser;
-  //   return of(user).pipe(
-  //     concatMap((user) => {
-  //       if (!user) throw new Error('User is not authenticated');
-
-  //       return updateProfile(user, profileData);
-  //     })
-  //   );
-  // }
+  updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
+    const user = this._fireAuth.authState;
+    return of(user).pipe(
+      concatMap((user: any) => {
+        if (!user) {
+          throw new Error('User is not authenticated');
+        }
+        return updateProfile(user, profileData);
+      })
+    );
+  }
 }

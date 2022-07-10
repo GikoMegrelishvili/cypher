@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { from, Observable, of, switchMap } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { AuthService } from './auth.service';
@@ -10,7 +11,8 @@ import { AuthService } from './auth.service';
 export class UserDataService {
   constructor(
     private _fireStore: AngularFirestore,
-    private _authServ: AuthService
+    private _authServ: AuthService,
+    private _storage: AngularFireStorage
   ) {}
 
   getCurrentUser$(): Observable<UserModel | null> {
@@ -35,9 +37,9 @@ export class UserDataService {
     return from(docRef.update({ ...user }));
   }
 
-  // uploadImage(image: File, path: string): Observable<string> {
-  //   const storageRef = ref(this._storage, path);
-  //   const uploadTask = from(uploadBytes(storageRef, image));
-  //   return uploadTask.pipe(switchMap((result) => getDownloadURL(result.ref)));
-  // }
+  uploadImage(image: File, path: string): Observable<any> {
+    const storageRef = this._storage.ref(path);
+    const uploadTask = from(storageRef.put(image, { contentType: image.type }));
+    return uploadTask.pipe(switchMap((result) => result.ref.getDownloadURL()));
+  }
 }
