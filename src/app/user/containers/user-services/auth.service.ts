@@ -23,16 +23,4 @@ export class AuthService {
   signOut() {
     return this._fireAuth.signOut();
   }
-
-  updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
-    const user = this._fireAuth.authState;
-    return of(user).pipe(
-      concatMap((user: any) => {
-        if (!user) {
-          throw new Error('User is not authenticated');
-        }
-        return updateProfile(user, profileData);
-      })
-    );
-  }
 }

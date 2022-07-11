@@ -31,7 +31,6 @@ export class ProfileViewComponent implements OnInit, OnDestroy {
   saveProfile() {
     const profileData = this.profileForm.value;
     this._userDataServ.updateUser(profileData);
-    console.log(profileData);
   }
 
   uploadImage(event: any, user: any) {

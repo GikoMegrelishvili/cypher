@@ -19,7 +19,15 @@
         }
       }
     }
-
+    .account {
+      @apply flex items-center;
+      img {
+        @apply h-10 w-10 rounded-full block mr-3;
+      }
+      button {
+        @apply block;
+      }
+    }
     .icon {
       @apply mx-3 animate-pulse transition-all duration-200 ease-in cursor-pointer;
     }

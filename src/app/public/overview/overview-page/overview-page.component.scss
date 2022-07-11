@@ -4,7 +4,7 @@
   .main {
     @apply h-min w-full;
     .cypher {
-      @apply bg-[url('/assets/images/cypher.jpg')] bg-cover w-80 h-60 left-10 top-20 absolute;
+      @apply bg-[url('/assets/images/overview/cypher.jpg')] bg-cover w-80 h-60 left-10 top-20 absolute;
       &:hover {
         @apply scale-105 duration-200 ease-in-out;
       }
