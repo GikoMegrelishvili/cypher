@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         cypher: "url('/assets/images/cypher.jpg')",
+        "loader-1": "url('/assets/images/loaders/loader-1.svg')",
+        "loader-2": "url('/assets/images/loaders/loader-2.svg')",
+        "not-found": "url('/assets/images/img-not-found.png')",
       },
       fontFamily: {
         primary: ["Primary", "sans-serif"],

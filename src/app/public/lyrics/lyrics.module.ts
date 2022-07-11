@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewLyricsComponent } from './containers/view-lyrics/view-lyrics.component';
 import { EditLyricsComponent } from './containers/edit-lyrics/edit-lyrics.component';
 import { LyricsRoutingModule } from './lyrics-routing.module';
 import { NgxAnnotateTextModule } from 'ngx-annotate-text';
@@ -11,12 +10,16 @@ import { SongCoverModule } from 'src/app/shared/ui/song-cover/song-cover.module'
 import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
 import { LyricsAddComponent } from './containers/lyrics-add/lyrics-add.component';
 import { UtilsModule } from 'src/app/shared/utils/utis.module';
+import { LyricsComponentModule } from 'src/app/shared/ui/lyrics/lyrics.module';
+import { LyricsPageComponent } from './containers/lyrics-page/lyrics-page.component';
+import { HeroIconModule } from 'ng-heroicon';
 
 @NgModule({
-  declarations: [ViewLyricsComponent, EditLyricsComponent, LyricsAddComponent],
+  declarations: [EditLyricsComponent, LyricsAddComponent, LyricsPageComponent],
   imports: [
     CommonModule,
     LyricsRoutingModule,
+    LyricsComponentModule,
     NgxAnnotateTextModule,
     AngularEditorModule,
     HttpClientModule,
@@ -25,6 +28,7 @@ import { UtilsModule } from 'src/app/shared/utils/utis.module';
     SongCoverModule,
     EditorModule,
     UtilsModule,
+    HeroIconModule,
   ],
 })
 export class LyricsModule {}

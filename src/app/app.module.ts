@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
+import { HeroIconModule, allIcons } from 'ng-heroicon';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,15 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    HeroIconModule.forRoot(
+      {
+        ...allIcons,
+      },
+      {
+        defaultHostDisplay: 'inlineBlock',
+        attachDefaultDimensionsIfNoneFound: true,
+      }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],

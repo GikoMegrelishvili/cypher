@@ -5,7 +5,11 @@
 >
   <div class="song-box">
     <div class="song-image">
-      <img src="{{song?.coverImageUrl}}" alt="{{ song?.songName }}" />
+      <img
+        imgHandler
+        src="{{ song?.coverImageUrl }}"
+        alt="{{ song?.songName }}"
+      />
     </div>
     <div class="song-description">
       <h3 class="title">{{ song?.songName }}</h3>

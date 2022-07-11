@@ -21,6 +21,7 @@
     "@angular/router": "^14.0.3",
     "@kolkov/angular-editor": "^2.1.0",
     "boxicons": "^2.1.2",
+    "ng-heroicon": "^2.1.0",
     "ngx-annotate-text": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

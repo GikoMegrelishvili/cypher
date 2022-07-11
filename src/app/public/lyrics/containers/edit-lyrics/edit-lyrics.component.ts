@@ -53,6 +53,10 @@ export class EditLyricsComponent implements OnInit {
       },
     ],
   };
+
+  markerEvent: any;
+  colorMarker = '#FFFF00';
+
   constructor(
     private _facade: LyricsFacade,
     private _activatedRoute: ActivatedRoute
@@ -61,9 +65,9 @@ export class EditLyricsComponent implements OnInit {
   ngOnInit(): void {
     this.setIdFromParams();
     this._facade.getSongLyrics$(this.songId).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.htmlContent = res[0]?.lyrics;
-      console.log(this.htmlContent);
+      // console.log(this.htmlContent);
       // this.form.setValue({
       //   htmlContent: res[0].lyrics.htmlContent,
       // });
@@ -80,9 +84,26 @@ export class EditLyricsComponent implements OnInit {
   }
 
   onRichTextEditorChange(html: any): void {
-    console.log(html);
+    // console.log(html);
   }
   public onAnnotationsChange(anotations: any): void {
-    console.log(anotations);
+    // console.log(anotations);
+  }
+
+  public markContent(): void {
+    const selection = window.getSelection();
+    const selectionRange = window?.getSelection()?.getRangeAt(0);
+    const textSeleted = selection?.toString();
+    const range = selectionRange?.cloneRange();
+    console.log(selection);
+    console.log(textSeleted);
+    if (this.markerEvent !== 'mark') {
+      const marker = document.createElement('mark');
+      marker.style.backgroundColor = this.colorMarker;
+      marker.setAttribute('id', 'Trolfeis107');
+      marker.textContent = textSeleted??'';
+      range?.surroundContents(marker);
+      return;
+    }
   }
 }

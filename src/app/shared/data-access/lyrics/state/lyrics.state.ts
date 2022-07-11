@@ -8,15 +8,14 @@ export class LyricsState {
   constructor(private _fireStore: AngularFirestore) {}
 
   public getAllLyrics(): Observable<LyricsModel[]> {
-    return this._fireStore.collection<LyricsModel>('lyrics').valueChanges();
+    return this._fireStore.collection<LyricsModel>('lyrics').valueChanges({idField:'id'});
   }
   public getSongLyrics(songId: string): Observable<LyricsModel> {
-    console.log(songId);
     return this._fireStore
       .collection<LyricsModel>('lyrics', (ref) =>
         ref.where('songId', '==', songId)
       )
-      .valueChanges()
+      .valueChanges({idField:'id'})
       .pipe(map((lyrics: LyricsModel[]) => lyrics[0]));
   }
   public postLyrics(songId: string, lyrics: LyricsModel): void {
