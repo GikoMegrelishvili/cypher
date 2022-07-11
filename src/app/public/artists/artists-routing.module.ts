@@ -16,14 +16,12 @@ const routes: Routes = [
     path: 'add',
     component: ArtistAddComponent,
     canActivate: [GuardsGuard],
-    redirectTo: '',
   },
   { path: ':id/view', component: ArtistViewComponent },
   {
     path: ':id/edit',
     component: ArtistEditComponent,
     canActivate: [GuardsGuard],
-    redirectTo: '',
   },
 ];
 

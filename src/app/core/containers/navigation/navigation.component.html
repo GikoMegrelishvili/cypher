@@ -29,7 +29,13 @@
               routerLinkActive="router-link-active"
               class="block"
             >
-              <img [src]="user.photoUrl" alt="" />
+              <img
+                [src]="
+                  user.photoUrl ??
+                  '../../assets/images/placeholders/image-placeholder.png'
+                "
+                [alt]="user.displayName"
+              />
             </a>
           </div>
           <button (click)="onSignOut()">Sign Out</button>

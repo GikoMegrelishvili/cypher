@@ -11,6 +11,7 @@
             user.photoUrl ??
             '../../assets/images/placeholders/image-placeholder.png'
           "
+          [alt]="user.displayName"
         />
         <label for="photoUrl">Photo Url</label>
         <input type="file" (change)="uploadImage($event, user)" />

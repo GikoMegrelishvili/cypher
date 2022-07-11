@@ -11,13 +11,11 @@ const routes: Routes = [
     path: 'add',
     component: SongAddComponent,
     canActivate: [GuardsGuard],
-    redirectTo: '',
   },
   {
     path: ':id/edit',
     component: SongEditComponent,
     canActivate: [GuardsGuard],
-    redirectTo: '',
   },
 ];
 
