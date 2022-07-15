@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
+import { LoadingService } from 'src/app/shared/loading/loading.service';
 import { SongModel } from '../models/song.model';
 
 @Injectable({ providedIn: 'root' })
 export class SongsState {
-  private _songs$ = this._fireStore.collection('songs').valueChanges({idField:'id'}) as Observable<SongModel[]>;
+  private _songs$ = this._fireStore
+    .collection('songs')
+    .valueChanges({ idField: 'id' }) as Observable<SongModel[]>;
 
-  constructor(private _fireStore: AngularFirestore) {}
+  constructor(
+    private _fireStore: AngularFirestore,
+    private _loadingService: LoadingService
+  ) {}
 
   public getAllSongs$(): Observable<SongModel[]> {
     return this._songs$;
   }
+
   public getSong$(songId: string): Observable<SongModel | any> {
     return this._songs$.pipe(
       map((songs: SongModel[]) => {
-        const songsMathched = songs.find((song: SongModel) => song.id === songId);
+        const songsMathched = songs.find(
+          (song: SongModel) => song.id === songId
+        );
         return songsMathched;
       })
     );

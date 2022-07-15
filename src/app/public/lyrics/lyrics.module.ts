@@ -17,6 +17,7 @@ import { LyricsComponent } from './components/lyrics/component/lyrics.component'
 import { AnnotationsComponent } from './components/annotations/component/annotations.component';
 import { AnnotationsModule } from './components/annotations/annotations.module';
 import { ActionsComponent } from './components/actions/actions.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [EditLyricsComponent, LyricsAddComponent, LyricsPageComponent, ActionsComponent],
@@ -33,7 +34,11 @@ import { ActionsComponent } from './components/actions/actions.component';
     LyricsComponentModule,
     AnnotationsModule,
     UtilsModule,
+<<<<<<< HEAD
     HeroIconModule,
+=======
+    CoreModule,
+>>>>>>> delman
   ],
 })
 export class LyricsModule {}

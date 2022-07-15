@@ -1,1 +1,9 @@
-<p>songs</p>
+<div *ngFor="let song of songs">
+  <div class="song-box" routerLink="/lyrics/{{ song.id }}/view">
+    <div>{{ "id: " + song.id }}</div>
+    <div>{{ "artName  " + song.artistName }}</div>
+    <div>{{ "artId  " + song.artistsIds }}</div>
+    <div>{{ "songname  " + song.songName }}</div>
+    <div><img src="{{ song?.coverImageUrl }}" alt="song.songName" /></div>
+  </div>
+</div>

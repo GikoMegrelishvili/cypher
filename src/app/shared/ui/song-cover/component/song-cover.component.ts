@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ArtistModel } from 'src/app/shared/data-access/artists';
+import { Observable } from 'rxjs';
+import { ArtistFacade, ArtistModel } from 'src/app/shared/data-access/artists';
 import { SongModel } from 'src/app/shared/data-access/songs/models/song.model';
 
 @Component({
@@ -8,21 +9,38 @@ import { SongModel } from 'src/app/shared/data-access/songs/models/song.model';
   styleUrls: ['./song-cover.component.scss'],
 })
 export class SongCoverComponent implements OnInit {
-  @Input() song!: SongModel | null;
-  @Input() artists: ArtistModel[] = [
-    {
-      pseudonyms: ['MC Givi'],
-    },
-    {
-      pseudonyms: ['MC Kuxi'],
-    },
-    {
-      pseudonyms: ['MC Rajaka'],
-    },
-    {
-      pseudonyms: ['Spanderako99'],
-    },
-  ];
-  constructor() {}
-  ngOnInit(): void {}
+  @Input() song$!: Observable<SongModel | null>;
+
+  song!: SongModel | null;
+  artistsIds: string[] = [];
+  singleArtistId!: string;
+  artists: ArtistModel[] = [];
+
+  constructor(private _artistFacade: ArtistFacade) {}
+
+  ngOnInit(): void {
+    this.song$.subscribe((song: any) => {
+      this.artistsIds = song?.artistsIds;
+      this.song = song;
+      // console.log(this.song);
+      // console.log(this.artistsIds);
+      this.getArtistsById();
+    });
+  }
+
+  getArtistsById() {
+    this.artistsIds.forEach((res: string) => {
+      this.singleArtistId = res;
+      // console.log(this.singleArtistId);
+      this.getArtistArray();
+    });
+    // console.log(this.artists);
+  }
+
+  getArtistArray() {
+    this._artistFacade.getArtist$(this.singleArtistId).subscribe((res: any) => {
+      this.artists.push(res);
+      console.log(res.pseudonyms[0]);
+    });
+  }
 }

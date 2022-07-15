@@ -1,0 +1,16 @@
+.auth-page {
+  @apply relative flex flex-col justify-center;
+  .auth-wrapper {
+    width: 600px;
+    @apply px-6 m-auto bg-black-100 rounded-md shadow-md;
+    .form {
+      @apply mt-0;
+      img {
+        @apply w-16 h-16 rounded-full object-cover object-center mt-3;
+      }
+    }
+    .heading {
+      @apply text-2xl  ml-3 inline font-semibold text-center text-white-100;
+    }
+  }
+}

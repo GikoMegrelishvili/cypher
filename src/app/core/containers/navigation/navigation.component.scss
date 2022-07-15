@@ -1,3 +1,48 @@
 #container {
-  @apply w-14 h-20 bg-white-100;
+  @apply w-full h-14 bg-transparent flex justify-end fixed bottom-0 z-10;
+  .icon {
+    @apply text-3xl;
+  }
+
+  .nav {
+    @apply w-full h-full bg-accent-300 flex flex-row items-center transition-all duration-1000 ease-in-out;
+
+    ul {
+      @apply grow flex items-center h-full justify-between;
+      .router {
+        @apply flex items-center;
+        li {
+          @apply inline-block ml-2 mr-5 cursor-pointer;
+          h2 {
+            @apply text-3xl font-special mr-5 cursor-default;
+          }
+        }
+      }
+    }
+    .account {
+      @apply flex items-center;
+      img {
+        @apply h-10 w-10 rounded-full block mr-3;
+      }
+      button {
+        @apply block;
+      }
+    }
+    .icon {
+      @apply mx-3 animate-pulse transition-all duration-200 ease-in cursor-pointer;
+    }
+  }
+
+  .nav.active {
+    @apply w-full h-full bg-white-100;
+    .account {
+      @apply hidden;
+    }
+    li {
+      @apply hidden;
+    }
+    .icon {
+      @apply text-accent-300 animate-pulse rotate-180;
+    }
+  }
 }

@@ -21,6 +21,8 @@
       }
       .pseudonym {
         @apply text-base font-bold text-secondary-100;
+        @apply cursor-pointer text-base font-bold text-black-900 hover:underline
+        hover:decoration-black-900 hover:decoration-2;
       }
     }
   }

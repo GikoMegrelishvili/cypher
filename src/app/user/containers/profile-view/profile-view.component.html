@@ -1,0 +1,41 @@
+<div class="auth-page">
+  <div class="auth-wrapper">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="saveProfile()"
+      class="form mt-6"
+    >
+      <div *ngIf="user$ | async as user" class="inline-block">
+        <img
+          [src]="
+            user.photoUrl ??
+            '../../assets/images/placeholders/image-placeholder.png'
+          "
+          [alt]="user.displayName"
+        />
+        <label for="photoUrl">Photo Url</label>
+        <input type="file" (change)="uploadImage($event, user)" />
+      </div>
+      <div class="mt-6 inline-block">
+        <button class="accent" type="submit">Save Profile</button>
+      </div>
+      <div>
+        <label for="displayName" class="label">Display Name</label>
+        <input formControlName="displayName" type="text" />
+      </div>
+      <div>
+        <label for="email" class="label">Email</label>
+        <input formControlName="email" type="email" />
+      </div>
+      <div>
+        <label for="firstName">First Name</label>
+        <input formControlName="firstName" type="firstName" />
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input formControlName="lastName" type="lastName" />
+      </div>
+      <div class="mt-4"></div>
+    </form>
+  </div>
+</div>

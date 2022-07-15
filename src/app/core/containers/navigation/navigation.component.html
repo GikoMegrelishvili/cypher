@@ -1,7 +1,52 @@
 <div id="container">
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+  <div class="nav active" #nav>
+    <ul>
+      <div class="router">
+        <li>
+          <h2>Cypher</h2>
+        </li>
+        <li>
+          <a [routerLink]="['/overview']" routerLinkActive="router-link-active"
+            >Overview</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
+            >Artists</a
+          >
+        </li>
+        <li>
+          <a [routerLink]="['/songs']" routerLinkActive="router-link-active"
+            >Songs</a
+          >
+        </li>
+      </div>
+      <div class="account">
+        <ng-container *ngIf="user$ | async as user; else signInButton">
+          <div>
+            <a
+              [routerLink]="['/user/profile']"
+              routerLinkActive="router-link-active"
+              class="block"
+            >
+              <img
+                [src]="
+                  user.photoUrl ??
+                  '../../assets/images/placeholders/image-placeholder.png'
+                "
+                [alt]="user.displayName"
+              />
+            </a>
+          </div>
+          <button (click)="onSignOut()">Sign Out</button>
+        </ng-container>
+        <ng-template #signInButton>
+          <button (click)="onSignIn()">Sign In</button>
+        </ng-template>
+      </div>
+    </ul>
+    <div class="icon">
+      <i class="bx bxs-chevrons-left rotate-90" (click)="navOpen()"></i>
+    </div>
+  </div>
 </div>

@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'lyrics',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -18,9 +18,8 @@ const routes: Routes = [
       import('./public/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   {
     path: 'artists',
@@ -42,5 +41,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [],
 })
 export class AppRoutingModule {}
