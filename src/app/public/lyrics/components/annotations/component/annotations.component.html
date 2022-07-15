@@ -1,0 +1,18 @@
+<div class="annotations-wrapper" *ngIf="annotation">
+  <div class="annotation" *ngFor="let ann of annotation[0].annotations">
+    <img
+      imgHandler
+      class="avatar"
+      src="https://tailus.io/sources/blocks/grid-cards/preview/images/avatars/third_user.webp"
+      alt="user avatar"
+    />
+    <div class="annotation-box">
+      <p class="content">
+        {{ ann }}
+      </p>
+      <div>
+        <h6 class="author">Jane Doe</h6>
+      </div>
+    </div>
+  </div>
+</div>

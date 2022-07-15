@@ -1,0 +1,14 @@
+<div class="lyrics-page">
+  <div class="container">
+    <ng-container [ngSwitch]="isEditing">
+      <div id="lyrics" *ngSwitchCase="false" class="lyrics"></div>
+      <div *ngSwitchCase="true" class="lyrics">
+        <angular-editor
+          [placeholder]="'Enter text here...'"
+          [(ngModel)]="htmlContent"
+          [config]="config"
+        ></angular-editor>
+      </div>
+    </ng-container>
+  </div>
+</div>

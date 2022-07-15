@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { AnnotationModel } from './models/annotation.model';
+import { AnnotationsResponseModel } from './models/annotations-response.model';
 import { AnnotationsState } from './state/annotations.state';
 
 @Injectable({ providedIn: 'root' })
 export class AnnotationsFacade {
   constructor(private _state: AnnotationsState) {}
 
-  public addAnnotation(annotation: AnnotationModel): void {
-    this._state.addAnotation(annotation);
+  getAnnotationById$(annotationId: string) {
+    return this._state.getAnnotationById$(annotationId);
   }
-  public getAnnotation$(annotationId: string) {
-    return this._state.getAnnotation$(annotationId);
+  getAnnotationsBySongId$(songId: string) {
+    return this._state.getAnnotationsBySongId$(songId);
   }
-  public getCreatedAnnotiationId(annotation: AnnotationModel): Promise<string> {
+  getCreatedAnnotiationId(annotation: AnnotationsResponseModel) {
     return this._state.getCreatedEmptyAnnotiationId(annotation);
   }
 }

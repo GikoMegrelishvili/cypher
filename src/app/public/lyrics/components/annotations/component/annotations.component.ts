@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AnnotationsFacade } from 'src/app/shared/data-access/annotations';
+import { AnnotationModel } from 'src/app/shared/data-access/annotations';
 
 @Component({
   selector: 'app-annotations',
@@ -7,9 +7,6 @@ import { AnnotationsFacade } from 'src/app/shared/data-access/annotations';
   styleUrls: ['./annotations.component.scss'],
 })
 export class AnnotationsComponent implements OnInit {
-  @Input() selectedAnnotiationId = '';
-  constructor(private _facade: AnnotationsFacade) {}
-  annotation$ = this._facade.getAnnotation$(this.selectedAnnotiationId);
-
+  @Input() annotation!:AnnotationModel;
   ngOnInit(): void {}
 }

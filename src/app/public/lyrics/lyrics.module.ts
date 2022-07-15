@@ -10,16 +10,19 @@ import { SongCoverModule } from 'src/app/shared/ui/song-cover/song-cover.module'
 import { EditorModule } from 'src/app/shared/ui/editor/editor.module';
 import { LyricsAddComponent } from './containers/lyrics-add/lyrics-add.component';
 import { UtilsModule } from 'src/app/shared/utils/utis.module';
-import { LyricsComponentModule } from 'src/app/shared/ui/lyrics/lyrics.module';
+import { LyricsComponentModule } from 'src/app/public/lyrics/components/lyrics/lyrics.module';
 import { LyricsPageComponent } from './containers/lyrics-page/lyrics-page.component';
 import { HeroIconModule } from 'ng-heroicon';
+import { LyricsComponent } from './components/lyrics/component/lyrics.component';
+import { AnnotationsComponent } from './components/annotations/component/annotations.component';
+import { AnnotationsModule } from './components/annotations/annotations.module';
+import { ActionsComponent } from './components/actions/actions.component';
 
 @NgModule({
-  declarations: [EditLyricsComponent, LyricsAddComponent, LyricsPageComponent],
+  declarations: [EditLyricsComponent, LyricsAddComponent, LyricsPageComponent, ActionsComponent],
   imports: [
     CommonModule,
     LyricsRoutingModule,
-    LyricsComponentModule,
     NgxAnnotateTextModule,
     AngularEditorModule,
     HttpClientModule,
@@ -27,6 +30,8 @@ import { HeroIconModule } from 'ng-heroicon';
     ReactiveFormsModule,
     SongCoverModule,
     EditorModule,
+    LyricsComponentModule,
+    AnnotationsModule,
     UtilsModule,
     HeroIconModule,
   ],

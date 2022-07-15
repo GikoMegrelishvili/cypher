@@ -1,5 +1,21 @@
 <app-song-cover [song]="song$ | async"></app-song-cover>
-<section class="lyrics">
-  <app-lyrics [lyrics]="lyrics$ | async"></app-lyrics>
-  <div class="action-box"></div>
-</section>
+<div class="content">
+  <!-- <aside>
+    <app-actions
+      [isEditing]="isEditing"
+      [songColor]="songColor"
+      (createAnnotationClicked)="onCreateAnnotation()"
+      (editLyricsClicked)="onEditLyrics($event)"
+    ></app-actions>
+  </aside> -->
+  <main>
+    <section class="lyrics">
+      <app-lyrics [lyrics]="lyrics$ | async"></app-lyrics>
+    </section>
+  </main>
+  <!-- <aside>
+    <div class="annotiation-box">
+      <app-annotations [annotation]="annotations$ | async"></app-annotations>
+    </div>
+  </aside> -->
+</div>

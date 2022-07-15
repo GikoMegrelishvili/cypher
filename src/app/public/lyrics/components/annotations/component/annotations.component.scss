@@ -1,0 +1,17 @@
+.annotations-wrapper {
+  @apply w-full h-max border border-white-100 rounded-xl bg-white-100 sm:flex sm:space-x-8 sm:p-8;
+  .annotation {
+    .avatar {
+      @apply w-20 h-20 mx-auto rounded-full;
+    }
+    .annotation-box {
+      @apply space-y-4 mt-4 text-center sm:mt-0 sm:text-left;
+      .content {
+        @apply text-black-400;
+      }
+      .author {
+        @apply text-lg font-semibold leading-none;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="action-box" [style.backgroundColor]="songColor">
+  <ng-container [ngSwitch]="isEditing">
+    <hero-icon
+      *ngSwitchCase="false"
+      (click)="onEditLyricsClick()"
+      name="pencil-alt"
+      class="w-7 h-7"
+    ></hero-icon>
+    <hero-icon
+      *ngSwitchCase="true"
+      (click)="onStopEditClick()"
+      name="x"
+      class="w-7 h-7"
+    ></hero-icon>
+  </ng-container>
+  <hero-icon
+    (click)="onCreateAnnotationClick()"
+    name="annotation"
+    class="w-7 h-7"
+  ></hero-icon>
+</div>
