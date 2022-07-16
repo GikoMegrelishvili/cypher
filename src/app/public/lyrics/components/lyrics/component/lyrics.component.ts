@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { AnnotationsFacade } from 'src/app/shared/data-access/annotations';
+import { LyricsFacade } from 'src/app/shared/data-access/lyrics';
 import { LyricsModel } from 'src/app/shared/data-access/lyrics/models/lyrics.model';
 
 @Component({
@@ -18,6 +19,7 @@ export class LyricsComponent implements OnInit, OnChanges {
   @Input() lyrics!: LyricsModel;
   @Input() songColor = 'rgb(199 194 255)';
   @Input() isEditing: boolean = false;
+  @Input() songId!: string;
 
   selectedAnnotiationId = '';
   htmlContent = '';
@@ -33,7 +35,7 @@ export class LyricsComponent implements OnInit, OnChanges {
     toolbarHiddenButtons: [['bold']],
   };
 
-  constructor() {}
+  constructor(private _facade:LyricsFacade) {}
 
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -43,5 +45,8 @@ export class LyricsComponent implements OnInit, OnChanges {
     if (lyricsElement) {
       lyricsElement.innerHTML = this.lyrics?.lyricsHtml;
     }
+  }
+  onEdit(){
+    this._facade.updateLyrics(this.lyrics.id,this.htmlContent);
   }
 }

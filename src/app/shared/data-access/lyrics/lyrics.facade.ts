@@ -11,8 +11,8 @@ export class LyricsFacade {
   public addLyrics(lyrics: LyricsModel): void {
     this._state.addLyrics(lyrics);
   }
-  public updateLyrics(songId: string, lyrics: any): void {
-    this._state.updateLyrics('5', lyrics);
+  public updateLyrics(lyricsId: string, lyrics: any): void {
+    this._state.updateLyrics(lyricsId, lyrics);
   }
   public getSongLyrics$(songId: string): Observable<LyricsModel> {
     return this._state.getSongLyrics(songId);

@@ -16,7 +16,7 @@
           <select name="" id="" formControlName="artistsIds" multiple>
             <option value="">Select Artist</option>
             <option *ngFor="let art of artists" [value]="art.id">
-              {{ art.firstName }}
+              {{ art.pseudonyms[0] }}
             </option>
           </select>
         </div>

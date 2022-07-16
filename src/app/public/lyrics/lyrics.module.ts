@@ -34,11 +34,8 @@ import { CoreModule } from 'src/app/core/core.module';
     LyricsComponentModule,
     AnnotationsModule,
     UtilsModule,
-<<<<<<< HEAD
     HeroIconModule,
-=======
     CoreModule,
->>>>>>> delman
   ],
 })
 export class LyricsModule {}

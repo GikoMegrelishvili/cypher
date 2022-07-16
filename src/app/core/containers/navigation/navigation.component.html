@@ -5,23 +5,16 @@
         <li>
           <h2>Cypher</h2>
         </li>
-        <li>
-          <a [routerLink]="['/overview']" routerLinkActive="router-link-active"
-            >Overview</a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/artists']" routerLinkActive="router-link-active"
-            >Artists</a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/songs']" routerLinkActive="router-link-active"
-            >Songs</a
+        <li *ngFor="let song of songs$ | async">
+          <a
+            [routerLink]="['/lyrics/' + song.id]"
+            routerLinkActive="router-link-active"
+            >{{ song.songName }}</a
           >
         </li>
       </div>
-      <div class="account">
+
+      <!-- <div class="account">
         <ng-container *ngIf="user$ | async as user; else signInButton">
           <div>
             <a
@@ -43,7 +36,7 @@
         <ng-template #signInButton>
           <button (click)="onSignIn()">Sign In</button>
         </ng-template>
-      </div>
+      </div> -->
     </ul>
     <div class="icon">
       <i class="bx bxs-chevrons-left rotate-90" (click)="navOpen()"></i>

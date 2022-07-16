@@ -29,12 +29,10 @@ export class SongCoverComponent implements OnInit {
   }
 
   getArtistsById() {
-    this.artistsIds.forEach((res: string) => {
+    this.artistsIds?.forEach((res: string) => {
       this.singleArtistId = res;
-      // console.log(this.singleArtistId);
       this.getArtistArray();
     });
-    // console.log(this.artists);
   }
 
   getArtistArray() {

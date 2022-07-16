@@ -1,6 +1,7 @@
 <div class="lyrics-page">
   <div class="container">
     <ng-container [ngSwitch]="isEditing">
+      <button (click)="onEdit()">Edit</button>
       <div id="lyrics" *ngSwitchCase="false" class="lyrics"></div>
       <div *ngSwitchCase="true" class="lyrics">
         <angular-editor
